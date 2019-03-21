@@ -14,7 +14,7 @@
 @using (Html.BeginForm("SignUp", "User", FormMethod.Post))
 {
     <div class="form-group row">
-        <label for="inputUserName" class="col-sm-2 col-form-label">UserName</label>
+        <label for="inputUserName" class="col-sm-2 col-form-label">User Name</label>
         <div class="col-sm-10">
             @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", id = "inputUserName" })
             <small class="text-danger">@Html.ValidationMessageFor(x => x.UserName)</small>
