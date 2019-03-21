@@ -133,7 +133,6 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Dal\UserDal.cs" />
     <Compile Include="Encryption\Encryption.cs" />
@@ -186,7 +185,6 @@
     <Content Include="Views\Shared\PartialShifts.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\User\amir.cshtml" />
-    <Content Include="Views\Login\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

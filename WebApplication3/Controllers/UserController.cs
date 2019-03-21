@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication3.Models;
 using WebApplication3.Dal;
-using HW.Classes;
+
+
 
 namespace WebApplication3.Controllers
 {
@@ -33,7 +34,7 @@ namespace WebApplication3.Controllers
             List<User> objUsers = dal.Users.ToList<User>();
             return View();
         }
-        public ActionResult enterSign()
+        public ActionResult enterSignUp ()
         {
             User obj = new User();
             return View("SignUp", obj);
@@ -47,7 +48,7 @@ namespace WebApplication3.Controllers
                 UserDal dal = new UserDal();
                 dal.Users.Add(usr);
                 dal.SaveChanges();
-                return View("SignUp", usr);
+                return View("loggedin", usr);
 
             }
             else
