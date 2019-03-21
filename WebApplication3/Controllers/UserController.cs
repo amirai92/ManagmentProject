@@ -56,6 +56,33 @@ namespace WebApplication3.Controllers
                 return View("amir", usr);
             }
         }
+        public ActionResult UserLogin()
+        {
+            User user = new User();
+            ViewBag.UserLoginMessage = "";
+            return View(user);
+        }
+
+        public ActionResult Login(User user)
+        {
+
+            UserDal dal = new UserDal();
+            //Encryption enc = new Encryption();
+            List<User> userToCheck = (from x in dal.Users
+                                      where (x.UserName == user.UserName) &&(x.Password == user.Password)
+                                      select x).ToList<User>();       //Attempting to get user information from database
+            if (userToCheck.Count != 0)     //In case username was found
+            {
+               
+                return View("loggedin", userToCheck);
+            }
+            else
+            {
+                ViewBag.UserLoginMessage = "Incorrect Username/password";
+                return View("UserLogin", userToCheck);
+            }
+        }
+
 
     }
 }
