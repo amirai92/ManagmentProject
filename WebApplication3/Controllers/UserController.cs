@@ -74,12 +74,12 @@ namespace WebApplication3.Controllers
             if (userToCheck.Count != 0)     //In case username was found
             {
                
-                return View("loggedin", userToCheck);
+                return View("loggedin", user);
             }
             else
             {
                 ViewBag.UserLoginMessage = "Incorrect Username/password";
-                return View("UserLogin", userToCheck);
+                return View("UserLogin", user);
             }
         }
 
