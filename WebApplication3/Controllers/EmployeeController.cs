@@ -74,13 +74,13 @@ namespace ThisAbility.Controllers
                 return View("UserLogin", emp);
             }
         }
-        /*
+        
         public ActionResult WantedBoard()
         {
-            return View(new AllWantedAds());
+            return View(new WantedAd("sali", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
 
         }
-        */
+
 
 
     }
