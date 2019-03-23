@@ -136,6 +136,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Dal\LookingAdsDal.cs" />
     <Compile Include="Dal\WantedAdsDal.cs" />
     <Compile Include="Dal\DataLayer.cs" />
@@ -200,6 +201,8 @@
     <Content Include="Views\Employer\loggedin.cshtml" />
     <Content Include="Views\Manager\ManagerLogin.cshtml" />
     <Content Include="Views\Manager\loggedin.cshtml" />
+    <Content Include="Views\Test\AutoLoad.cshtml" />
+    <Content Include="Views\Test\loggedin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
