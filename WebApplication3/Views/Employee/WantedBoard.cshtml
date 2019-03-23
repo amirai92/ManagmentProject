@@ -1,78 +1,8 @@
-﻿@model ThisAbility.Models.AllWantedAds
-@using ThisAbility.Models
+
+
+<br />
 @{
     ViewBag.Title = "WantedBoard";
 }
-
-<h2>Wanted Board</h2>
-
-*Add an AD
-*filter by disability
-
-<table class="table" id="wantedTable">
-    <tr>
-        <td>Employer Details</td>
-        <td></td>
-        <td></td>
-        <td></td>
-
-        <td>Suitable disabilities</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-
-        <td>Description</td>
-        <td></td>
-    </tr>
-
-
-
-
-    <tr>
-        <td>Employer Name</td>
-        <td>Email</td>
-        <td>Phone Number</td>
-        <td></td>
-
-        <td>Intellectual</td>
-        <td>Physical</td>
-        <td>Mental Illness</td>
-        <td>Sensory</td>
-        <td></td>
-
-        <td>Description</td>
-        <td></td>
-    </tr>
-
-    
-    Model.GetType
-
-
-    @*
-    @foreach (WantedAd ad in  )
-    {
-    <tr>
-        <td>ad.Name</td>
-        <td>ad.Email</td>
-        <td>ad.Phone Number</td>
-        <td></td>
-
-        <td>ad.Intellectual</td>
-        <td>ad.Physical</td>
-        <td>ad.MentalIllness</td>
-        <td>ad.Sensory</td>
-        <td></td>
-
-        <td>ad.Description</td>
-        <td></td>
-    </tr>
-
-    }
-
-
-    *@
-
-
-
-</table>
+<br /><br />
+@Html.Partial("PartialWantedAds")
