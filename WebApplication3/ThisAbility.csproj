@@ -147,9 +147,11 @@
     <Compile Include="Models\CV.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\LookingAd.cs" />
+    <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\WantedAd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\ViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -191,7 +193,6 @@
     <Content Include="Views\Employee\SignUp.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Employee\amir.cshtml" />
     <Content Include="Views\Employee\UserLogin.cshtml" />
     <Content Include="Views\Employee\WantedBoard.cshtml" />
   </ItemGroup>

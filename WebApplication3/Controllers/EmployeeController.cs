@@ -13,7 +13,7 @@ namespace ThisAbility.Controllers
         // GET: User
         public ActionResult DefaultLoad()
         {
-            User defUser = new User
+            Employee defUser = new Employee
             {
 
                 FirstName = "Amir",
@@ -25,13 +25,7 @@ namespace ThisAbility.Controllers
         }
 
 
-        public ActionResult amir()
-        {
 
-            UserDal dal = new UserDal();
-            List<User> objUsers = dal.Users.ToList<User>();
-            return View();
-        }
         public ActionResult enterSignUp ()
         {
             User obj = new User();
@@ -51,7 +45,7 @@ namespace ThisAbility.Controllers
             }
             else
             {
-                return View("amir", usr);
+                return View("enterSignUp", usr);
             }
         }
         public ActionResult UserLogin()

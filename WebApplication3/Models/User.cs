@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ThisAbility.Models
 {
-    public class User
+    public class Employee
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
