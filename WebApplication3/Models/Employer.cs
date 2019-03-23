@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WebApplication3.Models
 {
-    public class Manager
+    public class Employer
     {
         [Key]
         [Required]
@@ -15,6 +15,5 @@ namespace WebApplication3.Models
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
     }
 }

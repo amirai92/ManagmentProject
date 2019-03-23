@@ -26,8 +26,8 @@ namespace ThisAbility.Models
             this.MentalIllness = mental;
             this.Sensory = sens;
             this.Physical = phys;
-
-            AllWantedAds.Ads.Add(this);
+            //TODO : uncomment this 
+            //AllWantedAds.Ads.Add(this);
         }
 
 

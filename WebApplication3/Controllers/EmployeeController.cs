@@ -28,58 +28,59 @@ namespace ThisAbility.Controllers
 
         public ActionResult enterSignUp ()
         {
-            User obj = new User();
+            Employee obj = new Employee();
             return View("SignUp", obj);
         }
-        public ActionResult SignUp(User usr)
+        public ActionResult SignUp(Employee emp)
         {
             //Make new controller that has sign up page and then send it to this action
             if (ModelState.IsValid)
             {
 
-                UserDal dal = new UserDal();
-                dal.Users.Add(usr);
+                DataLayer dal = new DataLayer();
+                dal.employees.Add(emp);
                 dal.SaveChanges();
-                return View("loggedin", usr);
+                return View("loggedin", emp);
 
             }
             else
             {
-                return View("enterSignUp", usr);
+                return View("enterSignUp", emp);
             }
         }
         public ActionResult UserLogin()
         {
-            User user = new User();
+            Employee user = new Employee();
             ViewBag.UserLoginMessage = "";
             return View(user);
         }
 
-        public ActionResult Login(User user)
+        public ActionResult Login(Employee emp)
         {
 
-            UserDal dal = new UserDal();
+            DataLayer dal = new DataLayer();
             //Encryption enc = new Encryption();
-            List<User> userToCheck = (from x in dal.Users
-                                      where (x.UserName == user.UserName) &&(x.Password == user.Password)
-                                      select x).ToList<User>();       //Attempting to get user information from database
+            List<Employee> userToCheck = (from x in dal.employees
+                                      where (x.UserName == emp.UserName) &&(x.Password == emp.Password)
+                                      select x).ToList<Employee>();       //Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
                
-                return View("loggedin", user);
+                return View("loggedin", emp);
             }
             else
             {
                 ViewBag.UserLoginMessage = "Incorrect Username/password";
-                return View("UserLogin", user);
+                return View("UserLogin", emp);
             }
         }
-
+        /*
         public ActionResult WantedBoard()
         {
             return View(new AllWantedAds());
 
         }
+        */
 
 
     }

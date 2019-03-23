@@ -1,6 +1,6 @@
 ﻿
 
-@model ThisAbility.Models.User
+@model ThisAbility.Models.Employee
 
 @{
     ViewBag.Title = "UserRegister";
@@ -11,7 +11,7 @@
 <h2>User Register</h2>
 <hr />
 
-@using (Html.BeginForm("SignUp", "User", FormMethod.Post))
+@using (Html.BeginForm("SignUp", "Employee", FormMethod.Post))
 {
     <div class="form-group row">
         <label for="inputUserName" class="col-sm-2 col-form-label">User Name</label>

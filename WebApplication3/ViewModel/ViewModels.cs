@@ -8,8 +8,8 @@ namespace WebApplication3.ViewModel
 {
     public class ViewModels
     {
-        public List<User> users { get; set; }
-        public User user { get; set; }
+        public List<Employee> employees { get; set; }
+        public Employee employee { get; set; }
 
 
     }

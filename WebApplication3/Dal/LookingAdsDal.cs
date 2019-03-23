@@ -13,10 +13,10 @@ namespace ThisAbility.Dal
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().ToTable("tbLookingAds");
+            modelBuilder.Entity<Employee>().ToTable("tbLookingAds");
 
         }
-        public DbSet<User> LookingAds { get; set; }
+        public DbSet<Employee> LookingAds { get; set; }
     }
 
 }
