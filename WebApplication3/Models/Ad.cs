@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ThisAbility.Models
+namespace WebApplication3.Models
 {
     public abstract class Ad
     {

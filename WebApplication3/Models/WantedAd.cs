@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ThisAbility.Models
+namespace WebApplication3.Models
 {
     public class WantedAd : Ad
     {

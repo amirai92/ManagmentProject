@@ -1,30 +1,25 @@
 ﻿@model WebApplication3.Models.WantedAd
 @using WebApplication3.Models
 
-
-<h2>Wanted Board</h2>
-
+<h2>Looking for a job Board</h2>
 *Add an AD<br />
 *filter by disability
 
-<table class="table" id="wantedTable">
+<table class="table" id="LookingTable">
     <tr>
         <td>Employer Details</td>
         <td></td>
         <td></td>
         <td></td>
-
-        <td>Suitable disabilities</td>
+        <td>Disabilities</td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-
         <td>Description</td>
         <td></td>
+        <td></td>
     </tr>
-
-
 
 
     <tr>
@@ -32,37 +27,30 @@
         <td>Email</td>
         <td>Phone Number</td>
         <td></td>
-
         <td>Intellectual</td>
         <td>Physical</td>
         <td>Mental Illness</td>
         <td>Sensory</td>
         <td></td>
-
         <td>Description</td>
+        <td>CV</td>
         <td></td>
     </tr>
-
-
 
     <tr>
         <td>@Model.Name  </td>
         <td>@Model.Email</td>
         <td>@Model.Phone</td>
         <td></td>
-
         <td>@Html.CheckBoxFor(m => @Model.Intellectual, new { @disabled = "disabled" })</td>
         <td>@Html.CheckBoxFor(m => @Model.Physical, new { @disabled = "disabled" }) </td>
         <td>@Html.CheckBoxFor(m => @Model.MentalIllness, new { @disabled = "disabled" }) </td>
         <td>@Html.CheckBoxFor(m => @Model.Sensory, new { @disabled = "disabled" }) </td>
         <td></td>
-
         <td>@Model.Description</td>
+        <td>cv</td>
         <td></td>
     </tr>
-
-
-
 
 
 
@@ -74,17 +62,20 @@
             <td>ad.Email</td>
             <td>ad.Phone Number</td>
             <td></td>
+
             <td>ad.Intellectual</td>
             <td>ad.Physical</td>
             <td>ad.MentalIllness</td>
             <td>ad.Sensory</td>
             <td></td>
+
             <td>ad.Description</td>
             <td></td>
         </tr>
+
         }
+
+
     *@
-
-
 
 </table>

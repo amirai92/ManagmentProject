@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ThisAbility.Models;
-using ThisAbility.Dal;
+using WebApplication3.Models;
+using WebApplication3.Dal;
 
-namespace ThisAbility.Controllers
+namespace WebApplication3.Controllers
 {
     public class EmployeeController : Controller
     {
@@ -78,6 +78,12 @@ namespace ThisAbility.Controllers
         public ActionResult WantedBoard()
         {
             return View(new WantedAd("sali", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
+
+        }
+
+        public ActionResult LookingBoard()
+        {
+            return View(new LookingAd());
 
         }
 

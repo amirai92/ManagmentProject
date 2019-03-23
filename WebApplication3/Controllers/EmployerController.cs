@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using ThisAbility.Dal;
+using WebApplication3.Dal;
 using WebApplication3.Models;
 
-namespace ThisAbility.Controllers
+namespace WebApplication3.Controllers
 {
     public class EmployerController : Controller
     {
@@ -40,6 +40,19 @@ namespace ThisAbility.Controllers
                 ViewBag.UserLoginMessage = "Incorrect Username/password";
                 return View("EmployerLogin", emp);
             }
+        }
+
+
+        public ActionResult WantedBoard()
+        {
+            return View(new WantedAd("sali", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
+
+        }
+
+        public ActionResult LookingBoard()
+        {
+            return View(new LookingAd());
+
         }
     }
 }

@@ -201,6 +201,13 @@
     <Content Include="Views\Employer\loggedin.cshtml" />
     <Content Include="Views\Manager\ManagerLogin.cshtml" />
     <Content Include="Views\Manager\loggedin.cshtml" />
+    <Content Include="Views\Employee\LookingBoard.cshtml" />
+    <Content Include="Views\Shared\PartialLookingAds.cshtml" />
+    <Content Include="Views\Shared\PartialWantedAds.cshtml" />
+    <Content Include="Views\Employer\LookingBoard.cshtml" />
+    <Content Include="Views\Employer\WantedBoard.cshtml" />
+    <Content Include="Views\Manager\LookingBoard.cshtml" />
+    <Content Include="Views\Manager\WantedBoard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
