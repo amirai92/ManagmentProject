@@ -27,7 +27,7 @@ namespace ThisAbility.Models
             this.Sensory = sens;
             this.Physical = phys;
 
-            AllWantedAds.Ads.Add(this);
+         //   AllWantedAds.Ads.Add(this);
         }
 
 

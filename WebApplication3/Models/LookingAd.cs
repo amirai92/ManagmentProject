@@ -6,6 +6,8 @@ using static ThisAbility.Models.Enums;
 namespace ThisAbility.Models
 {
 
+
+    // should add to web.config
     public class LookingAd
     {
 

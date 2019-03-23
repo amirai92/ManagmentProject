@@ -194,10 +194,12 @@
     <Content Include="Views\Employee\amir.cshtml" />
     <Content Include="Views\Employee\UserLogin.cshtml" />
     <Content Include="Views\Employee\WantedBoard.cshtml" />
+    <Content Include="Views\Shared\PartialWantedAds.cshtml" />
+    <Content Include="Views\Employer\WantedBoard.cshtml" />
+    <Content Include="Views\Shared\partialLookingAd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Employer\" />
     <Folder Include="Views\Manager\" />
   </ItemGroup>
   <ItemGroup>

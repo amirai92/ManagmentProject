@@ -83,7 +83,7 @@ namespace ThisAbility.Controllers
 
         public ActionResult WantedBoard()
         {
-            return View(new AllWantedAds());
+            return View(new WantedAd("sali","sali@ac.com","0506502199","blabla",true,true,false,false));
 
         }
 
