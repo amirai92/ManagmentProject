@@ -7,16 +7,16 @@ using ThisAbility.Models;
 
 namespace ThisAbility.Dal
 {
-    public class UserDal : DbContext
+    public class WantedAdsDal : DbContext
 
     {
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().ToTable("tblUsers");
+            modelBuilder.Entity<User>().ToTable("tbWantedAds");
 
         }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> WantedAds { get; set; }
     }
 
 }

@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication3.Models;
-using WebApplication3.Dal;
+using ThisAbility.Models;
+using ThisAbility.Dal;
 
-
-
-namespace WebApplication3.Controllers
+namespace ThisAbility.Controllers
 {
-    public class UserController : Controller
+    public class EmployeeController : Controller
     {
         // GET: User
         public ActionResult DefaultLoad()
@@ -81,6 +79,12 @@ namespace WebApplication3.Controllers
                 ViewBag.UserLoginMessage = "Incorrect Username/password";
                 return View("UserLogin", user);
             }
+        }
+
+        public ActionResult WantedBoard()
+        {
+            return View(new AllWantedAds());
+
         }
 
 

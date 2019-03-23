@@ -132,14 +132,23 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EmployerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ManagerController.cs" />
+    <Compile Include="Dal\LookingAdsDal.cs" />
+    <Compile Include="Dal\WantedAdsDal.cs" />
     <Compile Include="Dal\UserDal.cs" />
     <Compile Include="Encryption\Encryption.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Ad.cs" />
+    <Compile Include="Models\CV.cs" />
+    <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\LookingAd.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\WantedAd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -178,16 +187,18 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\User\loggedin.cshtml" />
-    <Content Include="Views\User\SignUp.cshtml" />
+    <Content Include="Views\Employee\loggedin.cshtml" />
+    <Content Include="Views\Employee\SignUp.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\PartialShifts.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\User\amir.cshtml" />
-    <Content Include="Views\User\UserLogin.cshtml" />
+    <Content Include="Views\Employee\amir.cshtml" />
+    <Content Include="Views\Employee\UserLogin.cshtml" />
+    <Content Include="Views\Employee\WantedBoard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Employer\" />
+    <Folder Include="Views\Manager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
