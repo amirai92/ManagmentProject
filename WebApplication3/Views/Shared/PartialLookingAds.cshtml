@@ -1,4 +1,4 @@
-﻿@model WebApplication3.Models.WantedAd
+﻿@model WebApplication3.Models.LookingAd
 @using WebApplication3.Models
 
 <h2>Looking for a job Board</h2>
@@ -7,7 +7,7 @@
 
 <table class="table" id="LookingTable">
     <tr>
-        <td>Employer Details</td>
+        <td>Employee Details</td>
         <td></td>
         <td></td>
         <td></td>
@@ -17,7 +17,6 @@
         <td></td>
         <td></td>
         <td>Description</td>
-        <td></td>
         <td></td>
     </tr>
 
@@ -32,13 +31,12 @@
         <td>Mental Illness</td>
         <td>Sensory</td>
         <td></td>
-        <td>Description</td>
         <td>CV</td>
         <td></td>
     </tr>
 
     <tr>
-        <td>@Model.Name  </td>
+        <td>@Model.Name</td>
         <td>@Model.Email</td>
         <td>@Model.Phone</td>
         <td></td>
@@ -47,7 +45,6 @@
         <td>@Html.CheckBoxFor(m => @Model.MentalIllness, new { @disabled = "disabled" }) </td>
         <td>@Html.CheckBoxFor(m => @Model.Sensory, new { @disabled = "disabled" }) </td>
         <td></td>
-        <td>@Model.Description</td>
         <td>cv</td>
         <td></td>
     </tr>
@@ -55,7 +52,7 @@
 
 
     @*
-        @foreach (WantedAd ad in  )
+        @foreach (LookingAd ad in  )
         {
         <tr>
             <td>ad.Name</td>

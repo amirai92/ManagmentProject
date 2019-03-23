@@ -21,5 +21,11 @@ namespace WebApplication3.Models
         [RegularExpression(@"^(05[0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
         public string Phone { get; set; }
 
+        public bool Intellectual { get; set; }
+        public bool Physical { get; set; }
+        public bool MentalIllness { get; set; }
+        public bool Sensory { get; set; }
+
+
     }
 }
