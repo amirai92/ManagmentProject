@@ -201,8 +201,6 @@
     <Content Include="Views\Employer\loggedin.cshtml" />
     <Content Include="Views\Manager\ManagerLogin.cshtml" />
     <Content Include="Views\Manager\loggedin.cshtml" />
-    <Content Include="Views\Test\AutoLoad.cshtml" />
-    <Content Include="Views\Test\loggedin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
