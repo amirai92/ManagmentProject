@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ThisAbility.Models
+namespace WebApplication3.Models
 {
     public abstract class Ad
     {
@@ -20,6 +20,12 @@ namespace ThisAbility.Models
         [Required(ErrorMessage = "Mobile Number is required.")]
         [RegularExpression(@"^(05[0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
         public string Phone { get; set; }
+
+        public bool Intellectual { get; set; }
+        public bool Physical { get; set; }
+        public bool MentalIllness { get; set; }
+        public bool Sensory { get; set; }
+
 
     }
 }

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
-using ThisAbility.Models;
+using WebApplication3.Models;
 
-namespace ThisAbility.Dal
+namespace WebApplication3.Dal
 {
     public class WantedAdsDal : DbContext
 

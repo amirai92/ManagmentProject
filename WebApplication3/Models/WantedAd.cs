@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ThisAbility.Models
+namespace WebApplication3.Models
 {
     public class WantedAd : Ad
     {
-        public bool Intellectual { get; set; }
-        public bool Physical { get; set; }
-        public bool MentalIllness { get; set; }
-        public bool Sensory { get; set; }
 
         public string Description { get; set; }
 

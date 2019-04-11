@@ -6,14 +6,11 @@ using System.Web;
 
 namespace WebApplication3.Models
 {
-    public class Enums
+    public class VolunteerHobby
     {
-       
-        public enum Disa { Intellectual, Physical, MentalIllness, Sensory }
 
+        [Required(ErrorMessage = "Please enter Language Name")]
+        public string LanguageName { get; set; }
+        
     }
 }
-
-
-
-
