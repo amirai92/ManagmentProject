@@ -147,11 +147,16 @@
     </Compile>
     <Compile Include="Models\Ad.cs" />
     <Compile Include="Models\CV.cs" />
+    <Compile Include="Models\Education.cs" />
     <Compile Include="Models\Employer.cs" />
     <Compile Include="Models\Enums.cs" />
+    <Compile Include="Models\ErrorMessage.cs" />
+    <Compile Include="Models\Language.cs" />
     <Compile Include="Models\LookingAd.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\PersonalDetails.cs" />
+    <Compile Include="Models\VolunteerHobby.cs" />
     <Compile Include="Models\WantedAd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\ViewModels.cs" />
