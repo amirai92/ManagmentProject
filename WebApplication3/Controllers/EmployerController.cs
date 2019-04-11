@@ -54,5 +54,10 @@ namespace WebApplication3.Controllers
             return View(new LookingAd("sali", "sali@ac.com", "0506502199", true, true, false, false, null));
 
         }
+
+        public ActionResult EmployerSignup()
+        {
+            return View();
+        }
     }
 }
