@@ -16,23 +16,25 @@ namespace WebApplication3.Models
         [Key]
         [Required]
         [StringLength(15, MinimumLength = 3, ErrorMessage = "User Name must be 3 to 15 characters")]
-        private string UserName { get; set; }
+        public string UserName { get; set; }
 
 
         [Required]
         [StringLength(15, MinimumLength = 3, ErrorMessage = "Password must be 3 to 15 characters")]
-        private string Password { get; set; }
+        public string Password { get; set; }
 
-        public CV cv { get; set; }
+        //public CV cv { get; set; }
 
-        Employee(string UserName,string Password, string FirstName, string LastName)
+        public Employee() { }
+
+        public Employee(string UserName,string Password, string FirstName, string LastName)
         {
             this.UserName = UserName;
             //encr?
             this.Password = Password;
             this.FirstName = FirstName;
             this.LastName = LastName;
-            cv = new CV(FirstName,LastName);
+            //cv = new CV(FirstName,LastName);
 
         }
 

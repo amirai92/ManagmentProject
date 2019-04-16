@@ -13,14 +13,7 @@ namespace WebApplication3.Controllers
         // GET: User
         public ActionResult DefaultLoad()
         {
-            Employee defUser = new Employee
-            {
-
-                FirstName = "Amir",
-                LastName = "Aizin",
-                UserName = "Amir",
-                Password = "123456"
-            };
+            Employee defUser = new Employee("Amir", "123456", "Amir", "Aizin");
             return View("loggedin", defUser);
         }
 
@@ -29,23 +22,22 @@ namespace WebApplication3.Controllers
         public ActionResult enterSignUp ()
         {
             Employee obj = new Employee();
-            return View("SignUp", obj);
+            return View("EmployeeSignUp", obj);
         }
-        public ActionResult SignUp(Employee emp)
+        public ActionResult EmployeeSignUp(Employee emp)
         {
-            //Make new controller that has sign up page and then send it to this action
             if (ModelState.IsValid)
             {
 
                 DataLayer dal = new DataLayer();
                 dal.employees.Add(emp);
                 dal.SaveChanges();
-                return View("loggedin", emp);
+                return RedirectToAction("Index", "Home");
 
             }
             else
             {
-                return View("enterSignUp", emp);
+                return View("EmployeeSignUp", emp);
             }
         }
         public ActionResult UserLogin()

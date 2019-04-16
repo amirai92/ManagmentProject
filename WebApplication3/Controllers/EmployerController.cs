@@ -22,6 +22,24 @@ namespace WebApplication3.Controllers
             return View(emp);
         }
 
+        public ActionResult EmployerSignUp(Employer emp)
+        {
+            //Make new controller that has sign up page and then send it to this action
+            if (ModelState.IsValid)
+            {
+
+                DataLayer dal = new DataLayer();
+                dal.employers.Add(emp);
+                dal.SaveChanges();
+                return RedirectToAction("Index", "Home");
+
+            }
+            else
+            {
+                return View("EmployerSignUp", emp);
+            }
+        }
+
         public ActionResult Login(Employer emp)
         {
 
@@ -53,11 +71,6 @@ namespace WebApplication3.Controllers
         {
             return View(new LookingAd("sali", "sali@ac.com", "0506502199", true, true, false, false, null));
 
-        }
-
-        public ActionResult EmployerSignup()
-        {
-            return View();
         }
     }
 }

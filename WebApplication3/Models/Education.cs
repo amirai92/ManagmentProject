@@ -7,7 +7,7 @@ namespace WebApplication3.Models
     {
 
         [Required(ErrorMessage = "Please Your Institute or university")]  
-    public string InstituteUniversity { get; set; }
+        public string InstituteUniversity { get; set; }
 
         [Required(ErrorMessage = "Please Your Title of diploma")]
         public string TitleOfDiploma { get; set; }

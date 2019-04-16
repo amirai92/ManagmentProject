@@ -13,7 +13,6 @@ namespace WebApplication3.Models
         [Key]
         public int CVid { get; set; }
         
-
         public PersonalDetails pd { get; set; }
 
         public bool language { get; set; }
@@ -26,21 +25,17 @@ namespace WebApplication3.Models
         public VolunteerHobby[] vNh { get; set; }
 
         public bool army { get; set; }
-        public Army arm { get; set; }
+        //public Army arm { get; set; }
 
         public bool pastJobs { get; set; }
-        public PastJob[] jobs { get; set; }
+        //public PastJob[] jobs { get; set; }
 
         public bool disabilities { get; set; }
-        public Disability[] disa { get; set; }
+        //public Disability[] disa { get; set; }
 
         [StringLength(9, ErrorMessage = "ID number must be 9 characters")]
         [RegularExpression(@"^[0-9]{9}$", ErrorMessage = "ID number should contain only digits")]
         public string ID { get; set; }
-
-
-
-
 
         public CV(string first, string last)
         {
