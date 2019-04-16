@@ -29,9 +29,9 @@ namespace WebApplication3.Controllers
 
             DataLayer dal = new DataLayer();
             //Encryption enc = new Encryption();
-            List<Employer> userToCheck = (from x in dal.employers
+            List<Manager> userToCheck = (from x in dal.managers
                                           where (x.UserName == man.UserName) && (x.Password == man.Password)
-                                          select x).ToList<Employer>();       //Attempting to get user information from database
+                                          select x).ToList<Manager>();       //Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
 
