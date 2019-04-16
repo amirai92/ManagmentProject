@@ -8,7 +8,7 @@
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 <script src="~/Scripts/jquery.validate.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-<h2>Employee SignUp</h2>
+<h2>Employee Sign Up</h2>
 <hr/>
 
 @using (Html.BeginForm("EmployeeSignUp", "Employee", FormMethod.Post))
@@ -45,6 +45,6 @@
         </div>
     </div>
     <input id="role" name="role" type="hidden" value="User" />
-    <input class="btn btn-outline-primary" id="submit" type="submit" value="Add User" />
+    <input class="btn btn-outline-primary" id="submit" type="submit" value="Sign Up" />
     <h4 class="text-danger">@ViewBag.message</h4>
 }

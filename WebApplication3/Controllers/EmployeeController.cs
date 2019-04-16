@@ -24,6 +24,7 @@ namespace WebApplication3.Controllers
             Employee obj = new Employee();
             return View("EmployeeSignUp", obj);
         }
+
         public ActionResult EmployeeSignUp(Employee emp)
         {
             if (ModelState.IsValid)
