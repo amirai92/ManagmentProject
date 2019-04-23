@@ -1,0 +1,41 @@
+﻿@model WebApplication3.Models.Employer
+
+@{
+    ViewBag.Title = "EmployerMenu";
+}
+
+
+<div class="jumbotron">
+    @*TO add here Welcome to Employee Menu : UserName *@
+
+    <h1 class="display-4">Welcome to Employer Menu</h1>
+</div>
+
+
+
+<div class="row text-center">
+    <div class="col">
+        @Html.ActionLink("Watching content ", "WatchingContent", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+    <div class="col">
+        @Html.ActionLink("Watching The Board", "WatchingTheBoard", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+
+    <div class="col">
+        @Html.ActionLink("Publish feedback on web", "PublishOnWeb", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+
+    <div class="col">
+        @Html.ActionLink("Log out", "LogOut", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+    @*
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <div class="col">
+            @Html.ActionLink("Employee Registration", "enterSignUp", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
+        </div>
+    }
+        *@
+</div>
+
+

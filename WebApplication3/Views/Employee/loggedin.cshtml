@@ -1,21 +1,17 @@
 ﻿@model WebApplication3.Models.Employee
 
 @{
-    Layout = null;
+    ViewBag.Title = "EmployeeMenu";
 }
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-</head>
+
 <body>
 
     <div>
-        <i>Employee logged in</i>
-        <i>Your First Name And Last Name is :</i>
+        <i>@Model.FirstName  @Model.LastName logged in</i>
         <br />
-        @Model.FirstName @Model.LastName.
 
     </div>
 

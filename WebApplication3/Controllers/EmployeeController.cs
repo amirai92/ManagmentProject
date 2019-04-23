@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication3.Models;
 using WebApplication3.Dal;
+using System.Web.Security;
 
 namespace WebApplication3.Controllers
 {
@@ -16,8 +17,25 @@ namespace WebApplication3.Controllers
             Employee defUser = new Employee("Amir", "123456", "Amir", "Aizin");
             return View("loggedin", defUser);
         }
+        public ActionResult EmployeeMenu(Employee emp)
+        {
+            return View(emp);
+        }
 
-
+        public ActionResult WatchingContent()
+        {
+            return View();
+        }
+        public ActionResult WatchingTheBoard()
+        {
+            return View();
+        }
+        /*This function handles signing out*/
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("HomePage","Home");
+        }
 
         public ActionResult enterSignUp ()
         {
@@ -27,17 +45,22 @@ namespace WebApplication3.Controllers
 
         public ActionResult EmployeeSignUp(Employee emp)
         {
+
             if (ModelState.IsValid)
             {
 
                 DataLayer dal = new DataLayer();
                 dal.employees.Add(emp);
                 dal.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                ViewBag.message = "Employee was added succesfully.";
+                emp = new Employee();
+                return View("EmployeeMenu",emp);
+                //return RedirectToAction("Index", "Home");
 
             }
             else
             {
+                ViewBag.message = "Error in registration.";
                 return View("EmployeeSignUp", emp);
             }
         }
@@ -58,7 +81,7 @@ namespace WebApplication3.Controllers
                                       select x).ToList<Employee>();       //Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
-               
+                ViewBag.message = "Logged in succesfully.";
                 return View("loggedin", emp);
             }
             else

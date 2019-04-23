@@ -252,6 +252,21 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Employee\WatchingContecnt.cshtml" />
+    <Content Include="Views\Employee\EmployeeMenu.cshtml" />
+    <Content Include="Views\Employee\WatchingTheBoard.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Employer\WatchingTheBoard.cshtml" />
+    <Content Include="Views\Employer\WatchingContent.cshtml" />
+    <Content Include="Views\Employer\PublishOnWeb.cshtml" />
+    <Content Include="Views\Employer\EmployerMenu.cshtml" />
+    <Content Include="Views\Employer\LogOut.cshtml" />
+    <Content Include="Views\Manager\LogOut.cshtml" />
+    <Content Include="Views\Manager\Statistics.cshtml" />
+    <Content Include="Views\Manager\Watch.cshtml" />
+    <Content Include="Views\Manager\Edit.cshtml" />
+    <Content Include="Views\Manager\ManagerRegister.cshtml" />
+    <Content Include="Views\Manager\ManagerMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

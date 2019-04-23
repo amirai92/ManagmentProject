@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using WebApplication3.Dal;
 using WebApplication3.Models;
 
@@ -31,6 +32,7 @@ namespace WebApplication3.Controllers
                 DataLayer dal = new DataLayer();
                 dal.employers.Add(emp);
                 dal.SaveChanges();
+                //TODO : change here to employer Menu
                 return RedirectToAction("Index", "Home");
 
             }
@@ -59,8 +61,28 @@ namespace WebApplication3.Controllers
                 return View("EmployerLogin", emp);
             }
         }
-
-
+        /*This function handles signing out*/
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("HomePage", "Home");
+        }
+        public ActionResult EmployerMenu()
+        {
+            return View();
+        }
+        public ActionResult PublishOnWeb()
+        {
+            return View();
+        }
+        public ActionResult WatchingContent()
+        {
+            return View();
+        }
+        public ActionResult WatchingTheBoard()
+        {
+            return View();
+        }
         public ActionResult WantedBoard()
         {
             return View(new WantedAd("sali", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
