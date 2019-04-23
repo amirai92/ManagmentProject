@@ -25,14 +25,12 @@ namespace WebApplication3.Controllers
 
         public ActionResult EmployerSignUp(Employer emp)
         {
-            //Make new controller that has sign up page and then send it to this action
             if (ModelState.IsValid)
             {
 
                 DataLayer dal = new DataLayer();
                 dal.employers.Add(emp);
                 dal.SaveChanges();
-                //TODO : change here to employer Menu
                 return RedirectToAction("EmployerMenu");
 
             }
