@@ -64,7 +64,7 @@ namespace WebApplication3.Controllers
                 return View("EmployeeSignUp", emp);
             }
         }
-        public ActionResult UserLogin()
+        public ActionResult EmployeeLogin()
         {
             Employee user = new Employee();
             ViewBag.UserLoginMessage = "";
@@ -81,13 +81,12 @@ namespace WebApplication3.Controllers
                                       select x).ToList<Employee>();       //Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
-                ViewBag.message = "Logged in succesfully.";
-                return View("loggedin", emp);
+                return View("EmployeeMenu", emp);
             }
             else
             {
                 ViewBag.UserLoginMessage = "Incorrect Username/password";
-                return View("UserLogin", emp);
+                return View("EmployeeLogin", emp);
             }
         }
         

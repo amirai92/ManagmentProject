@@ -6,8 +6,10 @@
 <div class="jumbotron">
     @*TO add here Welcome to Employee Menu : UserName *@
 
-    <h1 class="display-4">Welcome to Employee Menu</h1>
-    @Model.FirstName
+    <h1 class="display-4">Welcome Back @Model.UserName</h1>
+    <h1 class="display-4">Employee Menu:</h1>
+
+
 </div>
 
 
@@ -23,13 +25,14 @@
     <div class="col">
         @Html.ActionLink("Log out", "LogOut", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
-    
+    @*
     @if (!User.Identity.IsAuthenticated)
     {
         <div class="col">
             @Html.ActionLink("Employee Registration", "enterSignUp", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
         </div>
     }
+    *@
 </div>
 
 

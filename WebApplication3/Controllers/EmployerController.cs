@@ -33,7 +33,7 @@ namespace WebApplication3.Controllers
                 dal.employers.Add(emp);
                 dal.SaveChanges();
                 //TODO : change here to employer Menu
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("EmployerMenu");
 
             }
             else
@@ -53,11 +53,11 @@ namespace WebApplication3.Controllers
             if (userToCheck.Count != 0)     //In case username was found
             {
 
-                return View("loggedin", emp);
+                return View("EmployerMenu", emp);
             }
             else
             {
-                ViewBag.UserLoginMessage = "Incorrect Username/password";
+                ViewBag.UserLoginMessage = "Incorrect Username/Password";
                 return View("EmployerLogin", emp);
             }
         }

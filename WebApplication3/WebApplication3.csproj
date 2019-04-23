@@ -225,16 +225,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Employee\loggedin.cshtml" />
     <Content Include="Views\Employee\EmployeeSignUp.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Employee\UserLogin.cshtml" />
+    <Content Include="Views\Employee\EmployeeLogin.cshtml" />
     <Content Include="Views\Employee\WantedBoard.cshtml" />
     <Content Include="Views\Employer\EmployerLogin.cshtml" />
-    <Content Include="Views\Employer\loggedin.cshtml" />
     <Content Include="Views\Manager\ManagerLogin.cshtml" />
-    <Content Include="Views\Manager\loggedin.cshtml" />
     <Content Include="Views\Employee\LookingBoard.cshtml" />
     <Content Include="Views\Shared\PartialLookingAds.cshtml" />
     <Content Include="Views\Shared\PartialWantedAds.cshtml" />
