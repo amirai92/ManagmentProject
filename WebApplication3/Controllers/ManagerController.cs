@@ -81,7 +81,7 @@ namespace WebApplication3.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("HomePage", "Home");
+            return RedirectToAction("Index", "Home");
         }
         
         public ActionResult ManagerLogin()

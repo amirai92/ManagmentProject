@@ -15,7 +15,7 @@ namespace WebApplication3.Controllers
         public ActionResult DefaultLoad()
         {
             Employee defUser = new Employee("Amir", "123456", "Amir", "Aizin");
-            return View("loggedin", defUser);
+            return View("EmployeeMenu", defUser);
         }
         public ActionResult EmployeeMenu(Employee emp)
         {
@@ -34,7 +34,7 @@ namespace WebApplication3.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("HomePage","Home");
+            return RedirectToAction("Index","Home");
         }
 
         public ActionResult enterSignUp ()
