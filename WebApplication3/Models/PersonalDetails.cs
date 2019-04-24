@@ -29,7 +29,7 @@ namespace WebApplication3.Models
 
         [Required(ErrorMessage = "Please Your skills")]
         [DataType(DataType.MultilineText)]
-        public string skills { get; set; }
+        public string Skills { get; set; }
 
         [Required(ErrorMessage = "Please Your Summary")]
         [DataType(DataType.MultilineText)]

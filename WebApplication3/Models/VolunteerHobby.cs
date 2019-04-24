@@ -9,11 +9,11 @@ namespace WebApplication3.Models
     public class VolunteerHobby
     {
 
-        public bool volunteer { get; set; }
-        public string hobbies { get; set; }
+        public bool Volunteer { get; set; }
+        public string VolunteerDet { get; set; }
 
-        public bool hobbies { get; set; }
-        public string volunteer { get; set; }
+        public bool Hobbies { get; set; }
+        public string HobbiesDet { get; set; }
 
     }
 }
