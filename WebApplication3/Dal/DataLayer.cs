@@ -24,10 +24,7 @@ namespace WebApplication3.Dal
         public DbSet<Employee> employees { get; set; }
         public DbSet<Employer> employers { get; set; }
         public DbSet<Manager> managers { get; set; }
-
-
-
-
+        
     }
 
 }
