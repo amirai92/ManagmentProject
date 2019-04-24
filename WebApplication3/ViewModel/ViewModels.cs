@@ -11,6 +11,5 @@ namespace WebApplication3.ViewModel
         public List<Employee> employees { get; set; }
         public Employee employee { get; set; }
 
-
     }
 }

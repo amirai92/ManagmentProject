@@ -9,7 +9,7 @@ namespace WebApplication3.Models
     public class Enums
     {
        
-        public enum Disa { Intellectual, Physical, MentalIllness, Sensory }
+        public enum Disa { Vision, Hearing, Thinking, Learning, Movement, MentalHealth, Communicating, Social }
 
     }
 }
