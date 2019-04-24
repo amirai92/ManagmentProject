@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "SignUp";
+}
+
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to ThisAbillity MVC Website</h1>
+</div>
+
+<div class="row text-center">
+    <div class="col">
+        @Html.ActionLink("Employee Sign Up", "enterSignUp", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+    <div class="col">
+        @Html.ActionLink("Employer Sign Up", "EmployerSignUp", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+
+
+</div>

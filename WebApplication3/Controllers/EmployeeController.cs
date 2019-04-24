@@ -49,21 +49,39 @@ namespace WebApplication3.Controllers
 
             if (ModelState.IsValid)
             {
+                if (!userExists(emp.UserName))
+                {
 
-                DataLayer dal = new DataLayer();
-                dal.employees.Add(emp);
-                dal.SaveChanges();
-                ViewBag.message = "Employee was added succesfully.";
-                emp = new Employee();
-                return View("EmployeeMenu",emp);
-                //return RedirectToAction("Index", "Home");
+                    DataLayer dal = new DataLayer();
+                    dal.employees.Add(emp);
+                    dal.SaveChanges();
+                    ViewBag.message = "Employee was added succesfully.";
+                    //emp = new Employee();
+                    return View("EmployeeMenu", emp);
+                    //return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.message = "Username Exists in database.";
 
+                }
             }
             else
             {
                 ViewBag.message = "Error in registration.";
-                return View("EmployeeSignUp", emp);
             }
+            return View("EmployeeSignUp", emp);
+
+        }
+        /*This function compares given username with usernames in database*/
+        private bool userExists(string userName)
+        {
+            DataLayer dal = new DataLayer();
+            List<Manager> users = dal.managers.ToList<Manager>();
+            foreach (Manager manager in dal.managers)
+                if (manager.UserName.Equals(userName))
+                    return true;
+            return false;
         }
         public ActionResult EmployeeLogin()
         {

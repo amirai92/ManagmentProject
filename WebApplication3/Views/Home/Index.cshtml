@@ -11,14 +11,14 @@
 
 </div>
 
-<div class="row text-center">
+@*@*<div class="row text-center">
     <div class="col">
         @Html.ActionLink("Employee Login", "UserLogin", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
     <div class="col">
         @Html.ActionLink("Employer Login", "EmployerLogin", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
-    <div class="col">
+    <div class="col">-
         @Html.ActionLink("Manager Login", "ManagerLogin", "Manager", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
     @if (!User.Identity.IsAuthenticated)
@@ -27,4 +27,4 @@
             @Html.ActionLink("Employee Registration", "enterSignUp", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
         </div>
     }
-</div>
+</div>*@
