@@ -18,7 +18,8 @@ namespace WebApplication3.Models
         public string SchoolName { get; set; }
         public DateTime? SchoolFromYear { get; set; }
         public DateTime? SchoolToYear { get; set; }
-        public int Years { get { return SchoolFromYear.Value.Year - SchoolToYear.Value.Year; } set; }
+        public int Years { get { return SchoolFromYear.Value.Year - SchoolToYear.Value.Year; }
+                           set { Years = SchoolFromYear.Value.Year - SchoolToYear.Value.Year; } }
 
         public bool Course { get; set; }
         public string CourseName { get; set; }

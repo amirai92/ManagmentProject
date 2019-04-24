@@ -25,6 +25,8 @@ namespace WebApplication3.Models
 
         //public CV cv { get; set; }
 
+
+            //TODO: what is thats???
         public Employee() { }
 
         public Employee(string UserName,string Password, string FirstName, string LastName)

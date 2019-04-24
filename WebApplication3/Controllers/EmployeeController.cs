@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebApplication3.Models;
 using WebApplication3.Dal;
 using System.Web.Security;
+using WebApplication3.ViewModel;
 
 namespace WebApplication3.Controllers
 {
@@ -102,10 +103,13 @@ namespace WebApplication3.Controllers
             return View(new LookingAd("sali", "sali@ac.com", "0506502199", true, true, false, false,null));
         }
 
-        public ActionResult CreateCV()
+        public ActionResult CreateCV(Employee emp)
         {
+            VM vm = new VM();
+            vm.Employee = emp;
+            vm.Pd = new PersonalDetails();
 
-            return View();
+            return View(vm);
         }
        
 
