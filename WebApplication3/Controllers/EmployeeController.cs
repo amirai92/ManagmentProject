@@ -27,9 +27,9 @@ namespace WebApplication3.Controllers
         {
             return View();
         }
-        public ActionResult WatchingTheBoard()
+        public ActionResult WatchingTheBoard(Employee emp)
         {
-            return View();
+            return View(emp);
         }
         /*This function handles signing out*/
         public ActionResult LogOut()

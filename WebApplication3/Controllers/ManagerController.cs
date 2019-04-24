@@ -24,13 +24,17 @@ namespace WebApplication3.Controllers
         {
             return View();
         }
+        public ActionResult Boards(Manager mng)
+        {
+            return View(mng);
+        }
         public ActionResult Edit()
         {
             return View();
         }
-        public ActionResult ManagerMenu()
+        public ActionResult ManagerMenu(Manager mng)
         {
-            return View();
+            return View(mng);
         }
         /*This function redirects to user register page*/
         public ActionResult ManagerRegister()
@@ -55,6 +59,7 @@ namespace WebApplication3.Controllers
                     dal.SaveChanges();
                     ViewBag.message = "Manager was added succesfully.";
                     mng = new Manager();
+                    View("ManagerMenu", mng);
                 }
                 else
                     ViewBag.message = "Username Exists in database.";
