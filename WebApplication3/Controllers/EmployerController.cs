@@ -57,7 +57,6 @@ namespace WebApplication3.Controllers
         {
 
             DataLayer dal = new DataLayer();
-            //Encryption enc = new Encryption();
             List<Employer> userToCheck = (from x in dal.employers
                                           where (x.UserName == emp.UserName) && (x.Password == emp.Password)
                                           select x).ToList<Employer>();       //Attempting to get user information from database
@@ -78,9 +77,13 @@ namespace WebApplication3.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
-        public ActionResult EmployerMenu()
+        public ActionResult EmployerMenu(Employer emp)
         {
-            return View();
+            return View(emp);
+        }
+        public ActionResult Boards(Employer emp)
+        {
+            return View(emp);
         }
         public ActionResult PublishOnWeb()
         {

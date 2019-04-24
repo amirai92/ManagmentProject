@@ -18,19 +18,43 @@ namespace WebApplication3.Controllers
         }
         public ActionResult Statistics()
         {
+            DataLayer dal = new DataLayer();
+            int countEmployee = 0,countEmployer=0,countManager=0,countSigned=0;
+            foreach (Employee employee in dal.employees)
+            {
+                countEmployee++;
+            }
+            foreach (Employer employer in dal.employers)
+            {
+                countEmployer++;
+            }
+            foreach (Manager manager in dal.managers)
+            {
+                countManager++;
+            }
+
+            ViewBag.countEmp = countEmployee;
+            ViewBag.countEmpr = countEmployer;
+            ViewBag.countMan = countManager;
+            countSigned = countEmployee + countEmployer + countManager;
+            ViewBag.countSign = countSigned;       
             return View();
         }
         public ActionResult Watch()
         {
             return View();
         }
+        public ActionResult Boards(Manager mng)
+        {
+            return View(mng);
+        }
         public ActionResult Edit()
         {
             return View();
         }
-        public ActionResult ManagerMenu()
+        public ActionResult ManagerMenu(Manager mng)
         {
-            return View();
+            return View(mng);
         }
         /*This function redirects to user register page*/
         public ActionResult ManagerRegister()
@@ -55,6 +79,7 @@ namespace WebApplication3.Controllers
                     dal.SaveChanges();
                     ViewBag.message = "Manager was added succesfully.";
                     mng = new Manager();
+                    View("ManagerMenu", mng);
                 }
                 else
                     ViewBag.message = "Username Exists in database.";
@@ -75,15 +100,13 @@ namespace WebApplication3.Controllers
             return false;
         }
 
-
-
         /*This function handles signing out*/
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
-        
+
         public ActionResult ManagerLogin()
         {
             Manager man = new Manager();

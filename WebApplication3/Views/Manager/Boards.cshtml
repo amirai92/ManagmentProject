@@ -1,0 +1,23 @@
+﻿@model WebApplication3.Models.Manager
+
+@{
+    ViewBag.Title = "Boards";
+}
+
+
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome Back @Model.UserName </h1>
+
+
+</div>
+
+
+<div class="row text-center">
+    <div class="col">
+        @Html.ActionLink("Wanted Board ", "WantedBoard", "Manager", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+    <div class="col">
+        @Html.ActionLink("Job Search", "LookingBoard", "Manager", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+</div>
