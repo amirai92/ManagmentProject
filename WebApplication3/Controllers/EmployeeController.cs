@@ -50,15 +50,12 @@ namespace WebApplication3.Controllers
             if (ModelState.IsValid)
             {
                 if (!userExists(emp.UserName))
-                {
-
+                {      
                     DataLayer dal = new DataLayer();
                     dal.employees.Add(emp);
                     dal.SaveChanges();
                     ViewBag.message = "Employee was added succesfully.";
-                    //emp = new Employee();
                     return View("EmployeeMenu", emp);
-                    //return RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -120,7 +117,7 @@ namespace WebApplication3.Controllers
           
             return View(new LookingAd("sali", "sali@ac.com", "0506502199", true, true, false, false,null));
         }
-
+        
         public ActionResult CreateCV(Employee emp)
         {
             VM vm = new VM();
@@ -129,6 +126,7 @@ namespace WebApplication3.Controllers
 
             return View(vm);
         }
+        
        
 
     }
