@@ -5,21 +5,24 @@ namespace WebApplication3.Models
 {
     public class Education
     {
+        public bool education { get; set; }
 
-        [Required(ErrorMessage = "Please Your Institute or university")]  
+        public bool uni { get; set; }
         public string InstituteUniversity { get; set; }
-
-        [Required(ErrorMessage = "Please Your Title of diploma")]
         public string TitleOfDiploma { get; set; }
-
-        [Required(ErrorMessage = "Please Your Degree")]
         public string Degree { get; set; }
+        public DateTime? UniFromYear { get; set; }
+        public DateTime? UniToYear { get; set; }
 
-        [Required(ErrorMessage = "Please enter Start Year")]
-        public Nullable<System.DateTime> FromYear { get; set; }
+        public bool School { get; set; }
+        public string SchoolName { get; set; }
+        public DateTime? SchoolFromYear { get; set; }
+        public DateTime? SchoolToYear { get; set; }
+        public int Years { get { return SchoolFromYear.Value.Year - SchoolToYear.Value.Year; } set; }
 
-        [Required(ErrorMessage = "Please enter End Year")]
-        public Nullable<System.DateTime> ToYear { get; set; }
+        public bool Course { get; set; }
+        public string CourseName { get; set; }
+        public DateTime? CourseFromYear { get; set; }
 
 
     }

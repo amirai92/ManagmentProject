@@ -9,8 +9,11 @@ namespace WebApplication3.Models
     public class VolunteerHobby
     {
 
-        [Required(ErrorMessage = "Please enter Language Name")]
-        public string LanguageName { get; set; }
-        
+        public bool volunteer { get; set; }
+        public string hobbies { get; set; }
+
+        public bool hobbies { get; set; }
+        public string volunteer { get; set; }
+
     }
 }

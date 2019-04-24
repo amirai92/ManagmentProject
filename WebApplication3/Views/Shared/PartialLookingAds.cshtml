@@ -16,6 +16,10 @@
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td>Description</td>
         <td></td>
     </tr>
@@ -26,10 +30,15 @@
         <td>Email</td>
         <td>Phone Number</td>
         <td></td>
-        <td>Intellectual</td>
-        <td>Physical</td>
-        <td>Mental Illness</td>
-        <td>Sensory</td>
+        <td>Vision</td>
+        <td>Hearing</td>
+        <td>Thinking</td>
+        <td>Learning</td>
+        <td>Movement</td>
+        <td>MentalHealth</td>
+        <td>Communicating</td>
+        <td>Social</td>
+
         <td></td>
         <td>CV</td>
         <td></td>
@@ -40,7 +49,7 @@
         <td>@Model.Email</td>
         <td>@Model.Phone</td>
         <td></td>
-        <td>@Html.CheckBoxFor(m => @Model.Intellectual, new { @disabled = "disabled" })</td>
+        <td>@Html.CheckBoxFor(m => @Model.Vision, new { @disabled = "disabled" })</td>
         <td>@Html.CheckBoxFor(m => @Model.Physical, new { @disabled = "disabled" }) </td>
         <td>@Html.CheckBoxFor(m => @Model.MentalIllness, new { @disabled = "disabled" }) </td>
         <td>@Html.CheckBoxFor(m => @Model.Sensory, new { @disabled = "disabled" }) </td>

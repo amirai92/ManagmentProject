@@ -6,7 +6,9 @@ namespace WebApplication3.Models
     public class PersonalDetails
     {
 
-        public int IDPers { get; set; }
+        [StringLength(9, ErrorMessage = "ID number must be 9 characters")]
+        [RegularExpression(@"^[0-9]{9}$", ErrorMessage = "ID number should contain only digits")]
+        public string ID { get; set; }
 
         [Required(ErrorMessage = "Please Your First Name ")]
         public string FirstName { get; set; }
@@ -15,11 +17,6 @@ namespace WebApplication3.Models
         [Required(ErrorMessage = "Please Your Date Of Birth ")]
         public Nullable<System.DateTime> DateOfBirth { get; set; }
 
-        [Required(ErrorMessage = "Please Your Nationality ")]
-        public string Nationality { get; set; }
-
-        [Required(ErrorMessage = "Select Your Educational Level ")]
-        public string EducationalLevel { get; set; }
 
         [Required(ErrorMessage = "Please Your Address ")]
         public string Address { get; set; }
@@ -29,6 +26,10 @@ namespace WebApplication3.Models
 
         [Required(ErrorMessage = "Please Your Email Address ")]
         public string Email { get; set; }
+
+        [Required(ErrorMessage = "Please Your skills")]
+        [DataType(DataType.MultilineText)]
+        public string skills { get; set; }
 
         [Required(ErrorMessage = "Please Your Summary")]
         [DataType(DataType.MultilineText)]
