@@ -27,19 +27,32 @@ namespace WebApplication3.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                DataLayer dal = new DataLayer();
-                dal.employers.Add(emp);
-                dal.SaveChanges();
-                return RedirectToAction("EmployerMenu");
-
+                if (!userExists(emp.UserName))
+                {
+                    DataLayer dal = new DataLayer();
+                    dal.employers.Add(emp);
+                    dal.SaveChanges();
+                    return View("EmployerMenu", emp);
+                }
+                else
+                    ViewBag.message = "Username Exists in database.";
             }
             else
-            {
-                return View("EmployerSignUp", emp);
-            }
-        }
+                ViewBag.message = "Error in registration.";
 
+             return View("EmployerSignUp", emp);
+            
+        }
+        /*This function compares given username with usernames in database*/
+        private bool userExists(string userName)
+        {
+            DataLayer dal = new DataLayer();
+            List<Manager> users = dal.managers.ToList<Manager>();
+            foreach (Manager manager in dal.managers)
+                if (manager.UserName.Equals(userName))
+                    return true;
+            return false;
+        }
         public ActionResult Login(Employer emp)
         {
 

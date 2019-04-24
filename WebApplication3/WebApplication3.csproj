@@ -264,6 +264,8 @@
     <Content Include="Views\Manager\Edit.cshtml" />
     <Content Include="Views\Manager\ManagerRegister.cshtml" />
     <Content Include="Views\Manager\ManagerMenu.cshtml" />
+    <Content Include="Views\Home\LogIn.cshtml" />
+    <Content Include="Views\Home\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
