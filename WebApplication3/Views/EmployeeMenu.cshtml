@@ -1,29 +1,25 @@
-﻿@model WebApplication3.Models.Employer
+﻿@model WebApplication3.Models.Employee
 
 @{
-    ViewBag.Title = "EmployerMenu";
+    ViewBag.Title = "EmployeeMenu";
 }
-
-
 <div class="jumbotron">
     <h1 class="display-4">Welcome Back @Model.UserName</h1>
-    <h1 class="display-4">Employer Menu:</h1>
+    <h1 class="display-4">Employee Menu:</h1>
+
+
 </div>
 
 
 
 <div class="row text-center">
     <div class="col">
-        @Html.ActionLink("Watching content ", "WatchingContent", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("Watching content ", "WatchingContent", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
     <div class="col">
-        @Html.ActionLink("Watching The Board", "Boards", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("Watching The Board", "WatchingTheBoard", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
-
-    <div class="col">
-        @Html.ActionLink("Publish feedback on web", "PublishOnWeb", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
-    </div>
-
+    
     <div class="col">
         @Html.ActionLink("Log out", "LogOut", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
@@ -34,7 +30,7 @@
             @Html.ActionLink("Employee Registration", "enterSignUp", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
         </div>
     }
-        *@
+    *@
 </div>
 
 
