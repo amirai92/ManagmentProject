@@ -5,13 +5,13 @@ namespace WebApplication3.Models
     public class Language
     {
 
-        public bool lang { get; set; }
+        public bool Lang { get; set; }
 
-        public string veryGood { get; set; }
+        public string VeryGood { get; set; }
 
-        public string good { get; set; }
+        public string Good { get; set; }
 
-        public string basic { get; set; }
+        public string Basic { get; set; }
 
     }
 }

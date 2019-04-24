@@ -1,0 +1,59 @@
+﻿@model WebApplication3.ViewModel.VM
+
+@{
+                /**/
+
+                /**/
+
+                ViewBag.Title = "UpdateLang";
+}
+
+<h2>
+    Language<br />
+    <br />
+</h2>
+please fill the fields below stage 2/6 <br /><br />
+
+
+@using (Html.BeginForm("UpdateEdu", "Employee", FormMethod.Post))
+{
+    <div class="form-group row">
+        <label for="inputID" class="col-sm-4 col-form-label">Do you want this section to appear in your CV?</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Langs.Lang, new { @class = "form-control", id = "inputLang" })
+        </div>
+    </div>
+    <div>
+        <label for="inputID" class="col-sm-10 col-form-label"><b>Write as much as you need lanuages in the fiels below splited by ","</b></label><br />
+    </div>
+    <div class="form-group row">
+        <label for="inputNative" class="col-sm-2 col-form-label">Enter your native level languages </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Langs.VeryGood, new { @class = "form-control", id = "inputNative" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputNative" class="col-sm-2 col-form-label">Enter your good level languages </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Langs.Good, new { @class = "form-control", id = "inputgood" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputBasic" class="col-sm-2 col-form-label">Enter your basic level languages </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Langs.Basic, new { @class = "form-control", id = "inputBasix" })
+        </div>
+    </div>
+
+
+    <input id="role" name="role" type="hidden" value="CV" />
+    <input class="btn btn-outline-primary" id="submit" type="submit" value="Next" />
+    <h4 class="text-danger">@ViewBag.message</h4>
+}
+
+
+
+
+
+
+

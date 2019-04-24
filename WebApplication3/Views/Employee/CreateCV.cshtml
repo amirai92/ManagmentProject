@@ -7,52 +7,105 @@
 <h2>
     Create CV<br />
     hi @Model.Employee.FirstName<br />
-    Welcome to our CV generator!<br />
+    Welcome to our CV generator!<br /><br />
 </h2>
-please fill the fields below<br />
+please fill the fields below - stage 1/6 <br /><br />
 
 
-<table class="table" id="LookingTable">
-    <tr>
-        <td>ID</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>First Name</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Last Name</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Birthday (dd/mm/yyyy) </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Home Adrees</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Phone Number</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Email</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Any Special Skills</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>Summary</td>
-        <td></td>
-    </tr>
+@using (Html.BeginForm("UpdateLang", "Employee", FormMethod.Post))
+{
+<div class="form-group row">
+    <label for="inputID" class="col-sm-2 col-form-label">ID number</label>
+    <div class="col-sm-10">
+        @Html.TextBoxFor(m => m.Pd.ID, new { @class = "form-control", id = "inputID" })
+        <small class="text-danger">@Html.ValidationMessageFor(x => x.Pd.ID)</small>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
+    <div class="col-sm-10">
+        @Html.TextBoxFor(m => m.Pd.FirstName, new { @class = "form-control", id = "inputFirstName" })
+        <small class="text-danger">@Html.ValidationMessageFor(x => x.Pd.FirstName)</small>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
+    <div class="col-sm-10">
+        @Html.TextBoxFor(m => m.Pd.LastName, new { @class = "form-control", id = "inputLastName" })
+        <small class="text-danger">@Html.ValidationMessageFor(x => x.Pd.LastName)</small>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputBirthday" class="col-sm-2 col-form-label">Date Of Birth (dd\mm\yyyy) </label>
+    <div class="col-sm-10">
+        @Html.TextBoxFor(m => m.Pd.DateOfBirth, new { @class = "form-control", id = "inputDateOfBirthe" })
+        <small class="text-danger">@Html.ValidationMessageFor(x => x.Pd.DateOfBirth)</small>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputAddress" class="col-sm-2 col-form-label">Address </label>
+    <div class="col-sm-10">
+        @Html.TextBoxFor(m => m.Pd.Address, new { @class = "form-control", id = "inputAddress" })
+        <small class="text-danger">@Html.ValidationMessageFor(x => x.Pd.Address)</small>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputTel" class="col-sm-2 col-form-label">Phone Number </label>
+    <div class="col-sm-10">
+        @Html.TextBoxFor(m => m.Pd.Tel, new { @class = "form-control", id = "inputTel" })
+        <small class="text-danger">@Html.ValidationMessageFor(x => x.Pd.Tel)</small>
+    </div>
+</div>
+
+
+<div class="form-group row">
+    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+        @Html.TextBoxFor(m => m.Pd.Email, new { @class = "form-control", id = "inputEmail" })
+        <small class="text-danger">@Html.ValidationMessageFor(x => x.Pd.Email)</small>
+    </div>
+</div>
+
+
+<div class="form-group row">
+    <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
+    <div class="col-sm-10">
+        @Html.TextBoxFor(m => m.Pd.Skills, new { @class = "form-control", id = "inputSkills" })
+        <small class="text-danger">@Html.ValidationMessageFor(x => x.Pd.Skills)</small>
+    </div>
+</div>
+
+<div class="form-group row">
+    <label for="inputSummary" class="col-sm-2 col-form-label">Summary </label>
+    <div class="col-sm-10">
+        @Html.TextBoxFor(m => m.Pd.Summary, new { @class = "form-control", id = "inputSummary" })
+        <small class="text-danger">@Html.ValidationMessageFor(x => x.Pd.Summary)</small>
+    </div>
+</div>
+
+<input id="role" name="role" type="hidden" value="CV" />
+<input class="btn btn-outline-primary" id="submit" type="submit" value="Next" />
+<h4 class="text-danger">@ViewBag.message</h4>
+}
 
 
 
 
-</table>
+
+
+
+
+
+
+
+
+
+
+
 
 

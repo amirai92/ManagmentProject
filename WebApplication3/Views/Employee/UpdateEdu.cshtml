@@ -1,0 +1,156 @@
+﻿@model WebApplication3.ViewModel.VM
+
+@{
+    ViewBag.Title = "UpdateEdu";
+}
+
+
+<h2>
+    Education<br />
+    <br />
+</h2>
+please fill the fields below - stage 3/6 <br /><br />
+
+
+@using (Html.BeginForm("UpdateVolHob", "Employee", FormMethod.Post))
+{
+    <div class="form-group row">
+        <label for="inputEduc" class="col-sm-4 col-form-label">Do you want this section to appear in your CV?</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Educ.Educ, new { @class = "form-control", id = "inputEduc" })
+        </div>
+    </div>
+    <br /><br />
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+    <div class="form-group row">
+        <label for="inputUni" class="col-sm-4 col-form-label">Do you want the university section to appear in your CV?</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Educ.Uni, new { @class = "form-control", id = "inputUni" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputInstituteUniversity" class="col-sm-2 col-form-label">Institute University</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.InstituteUniversity, new { @class = "form-control", id = "inputInstituteUniversity" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputTitleOfDiploma" class="col-sm-2 col-form-label">Title Of Diploma </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.TitleOfDiploma, new { @class = "form-control", id = "inputTitleOfDiploma" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputDegree" class="col-sm-2 col-form-label">Degree</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.Degree, new { @class = "form-control", id = "inputDegree" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputUniFromYear" class="col-sm-2 col-form-label">From Year</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.UniFromYear, new { @class = "form-control", id = "inputUniFromYear" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputUniToYear" class="col-sm-2 col-form-label">To Year</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.UniToYear, new { @class = "form-control", id = "inputUniToYear" })
+        </div>
+    </div>
+
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+
+
+
+
+    <div class="form-group row">
+        <label for="inputSchool" class="col-sm-4 col-form-label">Do you want the School section to appear in your CV?</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Educ.School, new { @class = "form-control", id = "inputSchool" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputSchoolName" class="col-sm-2 col-form-label">School Name</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.SchoolName, new { @class = "form-control", id = "inputSchoolName" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputFromYear" class="col-sm-2 col-form-label">From Year</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.SchoolFromYear, new { @class = "form-control", id = "inputFromYear" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputSchoolToYear" class="col-sm-2 col-form-label">To Year</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.SchoolToYear, new { @class = "form-control", id = "inputSchoolToYear" })
+        </div>
+    </div>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+
+
+
+
+
+    <div class="form-group row">
+        <label for="inputCourse" class="col-sm-4 col-form-label">Do you want the Course section to appear in your CV?</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Educ.Course, new { @class = "form-control", id = "inputCourse" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputCourseName" class="col-sm-2 col-form-label">Course Name</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.CourseName, new { @class = "form-control", id = "inputCourseName" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputCourseFromYear" class="col-sm-2 col-form-label">From Year</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.CourseFromYear, new { @class = "form-control", id = "inputCourseFromYear" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputSchoolToYear" class="col-sm-2 col-form-label">To Year</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Educ.SchoolToYear, new { @class = "form-control", id = "inputSchoolToYear" })
+        </div>
+    </div>
+
+
+
+
+
+
+    <input id="role" name="role" type="hidden" value="CV" />
+    <input class="btn btn-outline-primary" id="submit" type="submit" value="Next" />
+    <h4 class="text-danger">@ViewBag.message</h4>
+}
+
+
+
+
+
+
+

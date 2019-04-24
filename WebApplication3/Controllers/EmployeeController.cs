@@ -12,6 +12,8 @@ namespace WebApplication3.Controllers
 {
     public class EmployeeController : Controller
     {
+        public static VM vm;
+
         // GET: User
         public ActionResult DefaultLoad()
         {
@@ -123,13 +125,31 @@ namespace WebApplication3.Controllers
 
         public ActionResult CreateCV(Employee emp)
         {
-            VM vm = new VM();
-            vm.Employee = emp;
-            vm.Pd = new PersonalDetails();
+            vm = new VM
+            {
+                Employee = emp,
+                Pd = new PersonalDetails()
+            };
 
             return View(vm);
         }
-       
+        
+        public ActionResult UpdateLang(VM p)
+            {
+            vm.Pd = p.Pd;
+            vm.Langs = new Language();
+
+            return View(vm);
+        }
+
+        public ActionResult UpdateEdu(VM p)
+        {
+            vm.Langs = p.Langs;
+            vm.Educ = new Education();
+
+            return View(vm);
+        }
+
 
     }
 }
