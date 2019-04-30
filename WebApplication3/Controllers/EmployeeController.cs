@@ -163,6 +163,40 @@ namespace WebApplication3.Controllers
             return View(vm);
         }
 
+        public ActionResult UpdateDisa(VM p)
+        {
+            vm.Jobs = p.Jobs;
+            vm.Disabilities = new Disability();
+
+            return View(vm);
+        }
+
+        public ActionResult SetCV(VM p)
+        {
+            vm.Disabilities = p.Disabilities;
+
+            vm.Cv = new Models.CV() { Pd = vm.Pd, Disabilities = vm.Disabilities,
+                Langs = vm.Langs, Educ = vm.Educ, Jobs = vm.Jobs,
+                VolunteerNhobbies = vm.VolunteerNhobbies };
+
+            if (vm.Employee != null)
+            {
+                vm.Employee.Cv = vm.Cv;
+            }
+            return View(vm);
+        }
+
+
+        public ActionResult BackMenu(VM p)
+        {
+            return RedirectToAction("EmployeeMenu", p.Employee);
+        }
+
+
+        public ActionResult ShowCV(VM c)
+        {
+            return View(c);
+        }
 
     }
 }

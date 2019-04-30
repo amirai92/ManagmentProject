@@ -273,6 +273,9 @@
     <Content Include="Views\Employee\UpdateLang.cshtml" />
     <Content Include="Views\Employee\UpdateVH.cshtml" />
     <Content Include="Views\Employee\UpdateJobs.cshtml" />
+    <Content Include="Views\Employee\UpdateDisa.cshtml" />
+    <Content Include="Views\Employee\SetCV.cshtml" />
+    <Content Include="Views\Employee\ShowCV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

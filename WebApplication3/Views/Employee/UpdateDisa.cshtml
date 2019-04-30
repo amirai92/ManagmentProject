@@ -1,0 +1,243 @@
+﻿
+@model WebApplication3.ViewModel.VM
+
+
+@{
+    ViewBag.Title = "UpdateDisa";
+}
+
+
+
+
+<h2>
+    Disabillities<br /><br />
+</h2>
+Please fill your Disabilities in the fields below - stage 6/6 <br />
+Tick the checkbox if you want to add the section to your CV <br /><br />
+<b>Remember! its your right to keep your privacy <br />and share only if you feel comfort</b><br /><br /><br />
+
+
+
+@using (Html.BeginForm("SetCV", "Employee", FormMethod.Post))
+{
+
+    <div class="form-group row">
+        <label for="inputVoll" class="col-sm-6 col-form-label">Do you want the section to appear in your CV?</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Disabilities.Disabilities, new { @class = "form-control", id = "inputVoll" })
+        </div>
+    </div>
+    <br /><br />
+
+
+    <div class="form-group row">
+        <label for="inputVoll" class="col-sm-6 col-form-label">Vision disabilities</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Disabilities.Vision, new { @class = "form-control", id = "inputVoll" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputVol" class="col-sm-2 col-form-label">How does this affect your functioning? </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Disabilities.VisionExp, new { @class = "form-control", id = "inputVol" })
+        </div>
+    </div>
+
+    
+
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+
+    <div class="form-group row">
+        <label for="inputVoll" class="col-sm-6 col-form-label">Learning dificulties</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Disabilities.Learning, new { @class = "form-control", id = "inputVoll" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputVol" class="col-sm-2 col-form-label">How does this affect your functioning? </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Disabilities.LearningExp, new { @class = "form-control", id = "inputVol" })
+        </div>
+    </div>
+
+
+
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+
+
+
+
+    <div class="form-group row">
+        <label for="inputVoll" class="col-sm-6 col-form-label">Hearing disabilities</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Disabilities.Hearing, new { @class = "form-control", id = "inputVoll" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputVol" class="col-sm-2 col-form-label">How does this affect your functioning? </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Disabilities.HearingExp, new { @class = "form-control", id = "inputVol" })
+        </div>
+    </div>
+
+
+
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+
+
+    <div class="form-group row">
+        <label for="inputVoll" class="col-sm-6 col-form-label">Movment disabilities</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Disabilities.Movment, new { @class = "form-control", id = "inputVoll" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputVol" class="col-sm-2 col-form-label">How does this affect your functioning? </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Disabilities.MovmentExp, new { @class = "form-control", id = "inputVol" })
+        </div>
+    </div>
+
+
+
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+
+
+
+    <div class="form-group row">
+        <label for="inputVoll" class="col-sm-6 col-form-label">Mental illness</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Disabilities.MentalHealth, new { @class = "form-control", id = "inputVoll" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputVol" class="col-sm-2 col-form-label">How does this affect your functioning? </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Disabilities.MentalHealthExp, new { @class = "form-control", id = "inputVol" })
+        </div>
+    </div>
+
+
+
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+
+    <div class="form-group row">
+        <label for="inputVoll" class="col-sm-6 col-form-label">communicating disabilities</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Disabilities.Communicating, new { @class = "form-control", id = "inputVoll" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputVol" class="col-sm-2 col-form-label">How does this affect your functioning? </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Disabilities.CommunicatingExp, new { @class = "form-control", id = "inputVol" })
+        </div>
+    </div>
+
+
+
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+
+
+    <div class="form-group row">
+        <label for="inputVoll" class="col-sm-6 col-form-label">Vision disabilities</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.Disabilities.Social, new { @class = "form-control", id = "inputVoll" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputVol" class="col-sm-2 col-form-label">How does this affect your functioning? </label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.Disabilities.SocialExp, new { @class = "form-control", id = "inputVol" })
+        </div>
+    </div>
+
+
+
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <input id="role" name="role" type="hidden" value="CV" />
+    <input class="btn btn-outline-primary" id="submit" type="submit" value="Next" />
+    <h4 class="text-danger">@ViewBag.message</h4>
+}
+
+
+
+
+
+
+

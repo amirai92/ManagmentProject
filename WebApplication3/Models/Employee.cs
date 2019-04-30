@@ -23,10 +23,11 @@ namespace WebApplication3.Models
         [StringLength(15, MinimumLength = 3, ErrorMessage = "Password must be 3 to 15 characters")]
         public string Password { get; set; }
 
-        //public CV cv { get; set; }
+        public CV Cv { get; set; }
 
 
-            //TODO: what is thats???
+
+        //TODO: what is thats???
         public Employee() { }
 
         public Employee(string UserName,string Password, string FirstName, string LastName)

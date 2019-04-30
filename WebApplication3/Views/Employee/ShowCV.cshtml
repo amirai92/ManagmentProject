@@ -1,0 +1,228 @@
+﻿@model WebApplication3.ViewModel.VM
+
+@{
+    ViewBag.Title = "ShowCV";
+}
+
+<h1>Resume</h1><br /><br /><br />
+
+<h2>Personal Details</h2><br /><br />
+<table class="table" id="LookingTable">
+
+    <tr>
+        <td>First Name: </td>
+        <td>@Model.Cv.Pd.FirstName</td>
+    </tr>
+
+    <tr>
+        <td>Last Name: </td>
+        <td>@Model.Cv.Pd.LastName</td>
+    </tr>
+
+    <tr>
+        <td>ID Number: </td>
+        <td>@Model.Cv.Pd.ID</td>
+    </tr>
+
+    <tr>
+        <td>Date of birth: </td>
+        <td>@Model.Cv.Pd.DateOfBirth</td>
+    </tr>
+
+    <tr>
+        <td>Home Address: </td>
+        <td>@Model.Cv.Pd.Address</td>
+    </tr>
+
+    <tr>
+        <td>Phone Number: </td>
+        <td>@Model.Cv.Pd.Tel</td>
+    </tr>
+
+    <tr>
+        <td>Email: </td>
+        <td>@Model.Cv.Pd.Email</td>
+    </tr>
+
+    <tr>
+        <td>Skills: </td>
+        <td>@Model.Cv.Pd.Skills</td>
+    </tr>
+
+    <tr>
+        <td>Summary: </td>
+        <td>@Model.Cv.Pd.Summary</td>
+    </tr>
+
+</table>
+
+@if (@Model.Cv.Langs.Lang)
+{
+    <br /><br /><br />
+    <h2>Languages</h2><br /><br />
+    <table class="table" id="LookingTable">
+
+        @if (Model.Cv.Langs.VeryGood != null)
+        {
+        <tr>
+            <td>Native Level Languages: </td>
+            <td>@Model.Cv.Langs.VeryGood</td>
+        </tr>
+        }
+
+        @if (Model.Cv.Langs.Good != null)
+        {
+        <tr>
+            <td>Good Level Languages: </td>
+            <td>@Model.Cv.Langs.Good</td>
+        </tr>      
+        }
+
+        @if (Model.Cv.Langs.Basic != null)
+        {
+        <tr>
+            <td>Basic Level Languages: </td>
+            <td>@Model.Cv.Langs.Basic</td>
+        </tr>
+        }
+
+    </table>
+
+
+}
+
+
+
+@if (Model.Cv.Educ.Educ)
+{
+    <br /><br /><br />
+    <h2>Education</h2><br /><br />
+    <table class="table" id="LookingTable">
+
+        @if (Model.Cv.Educ.Uni)
+        {
+            <tr>
+                <td>Institute</td>
+                <td><b>@Model.Cv.Educ.InstituteUniversity</b></td>
+            </tr>
+            <tr>
+                <td>@Model.Cv.Educ.TitleOfDiploma </td>
+                <td>@Model.Cv.Educ.Degree</td>
+             </tr>
+             <tr>
+                <td>@Model.Cv.Educ.UniFromYear - @Model.Cv.Educ.UniToYear</td>
+
+            </tr>
+        }
+
+
+        @if (Model.Cv.Educ.School)
+        {
+            <tr>
+                <td>School Name </td>
+                <td><b>@Model.Cv.Educ.SchoolName</b></td>
+            </tr>
+            <tr>
+                <td>@Model.Cv.Educ.SchoolFromYear - @Model.Cv.Educ.SchoolToYear</td>
+            </tr>
+        }
+
+        @if (Model.Cv.Educ.Course)
+        {
+            <tr>
+                <td>@Model.Cv.Educ.CourseFromYear</td>
+                <td>Course Name </td>
+                <td><b>@Model.Cv.Educ.CourseName</b></td>
+            </tr>
+        }
+
+
+    </table>
+
+
+}
+
+
+
+
+@if (Model.Cv.VolunteerNhobbies.Volunteer )
+{
+    <br /><br /><br />
+    <h2>Volunteer</h2><br /><br />
+    <table class="table" id="LookingTable">
+
+        <tr>
+            <td>@Model.Cv.VolunteerNhobbies.VolunteerDet</td>
+        </tr>
+
+    </table>
+
+}
+
+
+
+@if (Model.Cv.VolunteerNhobbies.Hobbies)
+{
+    <br /><br /><br />
+    <h2>Hobbies</h2><br /><br />
+    <table class="table" id="LookingTable">
+
+        <tr>
+            <td>@Model.Cv.VolunteerNhobbies.HobbiesDet</td>
+        </tr>
+
+    </table>
+
+}
+
+
+
+
+
+
+@if (Model.Cv.Jobs.pastjobs)
+{
+    <br /><br /><br />
+    <h2>Past Jobs</h2><br /><br />
+    <table class="table" id="LookingTable">
+
+        @if (Model.Cv.Jobs.pastJob1)
+        {
+            <tr>
+                <td><b>@Model.Cv.Jobs.title1 - </b></td>
+                <td>@Model.Cv.Jobs.explain1</td>
+            </tr>
+            <tr></tr>
+        }
+
+    </table>
+    <table class="table" id="LookingTable">
+
+        @if (Model.Cv.Jobs.pastJob2)
+        {
+            <tr>
+                <td><b>@Model.Cv.Jobs.title2 - </b></td>
+                <td>@Model.Cv.Jobs.explain2</td>
+            </tr>
+            <tr></tr>
+
+        }
+
+    </table>
+
+
+    <table class="table" id="LookingTable">
+
+        @if (Model.Cv.Jobs.pastJob3)
+        {
+            <tr>
+                <td><b>@Model.Cv.Jobs.title3 - </b></td>
+                <td>@Model.Cv.Jobs.explain3</td>
+            </tr>
+            <tr></tr>
+
+        }
+
+    </table>
+
+}

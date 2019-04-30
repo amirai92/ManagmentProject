@@ -1,0 +1,17 @@
+﻿
+@Model WebApplication3.ViewModel.VM
+
+@{
+    ViewBag.Title = "SetCV";
+}
+
+<h1>Done!</h1>
+<h2>The CV was added into your account</h2>
+<br /><br /><br />
+<div class="col">
+    @Html.ActionLink("Show CV", "ShowCV", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
+</div>
+<br />
+<div class="col">
+    @Html.ActionLink("Back To Menu", "BackMenu", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
+</div>

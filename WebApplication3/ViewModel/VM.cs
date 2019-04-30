@@ -17,6 +17,7 @@ namespace WebApplication3.ViewModel
         public VolunteerHobby VolunteerNhobbies { get; set; }
         public PastJob Jobs { get; set; }
         public Disability Disabilities { get; set; }
+        public CV Cv { get; set; }
 
 
     }
