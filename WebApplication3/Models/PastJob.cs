@@ -7,7 +7,7 @@ namespace WebApplication3.Models
 {
     public class PastJob
     {
-
+        public bool pastjobs { get; set; }
         public bool pastJob1 { get; set; }
         public string title1 { get; set; }
         public string explain1 { get; set; }

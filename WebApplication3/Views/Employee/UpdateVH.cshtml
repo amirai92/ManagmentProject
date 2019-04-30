@@ -1,7 +1,76 @@
 ﻿
+@model WebApplication3.ViewModel.VM
+
+
 @{
     ViewBag.Title = "UpdateVH";
 }
 
-<h2>UpdateVH</h2>
+
+
+
+<h2>
+    Volunteering and Hobbies<br />
+    <br />
+</h2>
+please fill the fields below - stage 4/6 <br /><br />
+
+
+@using (Html.BeginForm("UpdateJobs", "Employee", FormMethod.Post))
+{
+    <div class="form-group row">
+        <label for="inputVoll" class="col-sm-6 col-form-label">Do you want the Volunteer section to appear in your CV?</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.VolunteerNhobbies.Volunteer, new { @class = "form-control", id = "inputVoll" })
+        </div>
+    </div>
+    <br />
+
+
+    <div class="form-group row">
+        <label for="inputVol" class="col-sm-2 col-form-label">Detail about your volunteering</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.VolunteerNhobbies.VolunteerDet, new { @class = "form-control", id = "inputVol" })
+        </div>
+    </div>
+
+
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+    <label for="inputIDd" class="col-sm-4 col-form-label"> </label>
+
+
+
+
+    <div class="form-group row">
+        <label for="inputHobb" class="col-sm-6 col-form-label">Do you want the Hobbies section to appear in your CV?</label>
+        <div class="col-sm-1">
+            @Html.CheckBoxFor(m => m.VolunteerNhobbies.Hobbies, new { @class = "form-control", id = "inputHobb" })
+        </div>
+    </div>
+    <br />
+
+
+    <div class="form-group row">
+        <label for="inputHob" class="col-sm-2 col-form-label">Detail about your hobbies</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(m => m.VolunteerNhobbies.HobbiesDet, new { @class = "form-control", id = "inputHob" })
+        </div>
+    </div>
+
+
+
+
+    <input id="role" name="role" type="hidden" value="CV" />
+    <input class="btn btn-outline-primary" id="submit" type="submit" value="Next" />
+    <h4 class="text-danger">@ViewBag.message</h4>
+}
+
+
+
+
+
+
 

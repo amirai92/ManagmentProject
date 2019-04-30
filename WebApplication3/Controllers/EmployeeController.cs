@@ -146,8 +146,23 @@ namespace WebApplication3.Controllers
 
             return View(vm);
         }
-        
-       
+
+        public ActionResult UpdateVH(VM p)
+        {
+            vm.Educ = p.Educ;
+            vm.VolunteerNhobbies = new VolunteerHobby();
+
+            return View(vm);
+        }
+
+        public ActionResult UpdateJobs(VM p)
+        {
+            vm.VolunteerNhobbies = p.VolunteerNhobbies;
+            vm.Jobs = new PastJob();
+
+            return View(vm);
+        }
+
 
     }
 }

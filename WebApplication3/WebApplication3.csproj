@@ -268,6 +268,11 @@
     <Content Include="Views\Manager\Boards.cshtml" />
     <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Home\SignUp.cshtml" />
+    <Content Include="Views\Employee\CreateCV.cshtml" />
+    <Content Include="Views\Employee\UpdateEdu.cshtml" />
+    <Content Include="Views\Employee\UpdateLang.cshtml" />
+    <Content Include="Views\Employee\UpdateVH.cshtml" />
+    <Content Include="Views\Employee\UpdateJobs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
