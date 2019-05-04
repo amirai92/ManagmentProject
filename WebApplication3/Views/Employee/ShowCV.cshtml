@@ -11,78 +11,78 @@
 
     <tr>
         <td>First Name: </td>
-        <td>@Model.Cv.Pd.FirstName</td>
+        <td>@Model.Pd.FirstName</td>
     </tr>
 
     <tr>
         <td>Last Name: </td>
-        <td>@Model.Cv.Pd.LastName</td>
+        <td>@Model.Pd.LastName</td>
     </tr>
 
     <tr>
         <td>ID Number: </td>
-        <td>@Model.Cv.Pd.ID</td>
+        <td>@Model.Pd.ID</td>
     </tr>
 
     <tr>
         <td>Date of birth: </td>
-        <td>@Model.Cv.Pd.DateOfBirth</td>
+        <td>@Model.Pd.DateOfBirth</td>
     </tr>
 
     <tr>
         <td>Home Address: </td>
-        <td>@Model.Cv.Pd.Address</td>
+        <td>@Model.Pd.Address</td>
     </tr>
 
     <tr>
         <td>Phone Number: </td>
-        <td>@Model.Cv.Pd.Tel</td>
+        <td>@Model.Pd.Tel</td>
     </tr>
 
     <tr>
         <td>Email: </td>
-        <td>@Model.Cv.Pd.Email</td>
+        <td>@Model.Pd.Email</td>
     </tr>
 
     <tr>
         <td>Skills: </td>
-        <td>@Model.Cv.Pd.Skills</td>
+        <td>@Model.Pd.Skills</td>
     </tr>
 
     <tr>
         <td>Summary: </td>
-        <td>@Model.Cv.Pd.Summary</td>
+        <td>@Model.Pd.Summary</td>
     </tr>
 
 </table>
 
-@if (@Model.Cv.Langs.Lang)
+@if (@Model.Langs.Lang)
 {
     <br /><br /><br />
     <h2>Languages</h2><br /><br />
     <table class="table" id="LookingTable">
 
-        @if (Model.Cv.Langs.VeryGood != null)
+        @if (Model.Langs.VeryGood != null)
         {
         <tr>
             <td>Native Level Languages: </td>
-            <td>@Model.Cv.Langs.VeryGood</td>
+            <td>@Model.Langs.VeryGood</td>
         </tr>
         }
 
-        @if (Model.Cv.Langs.Good != null)
+        @if (Model.Langs.Good != null)
         {
         <tr>
             <td>Good Level Languages: </td>
-            <td>@Model.Cv.Langs.Good</td>
+            <td>@Model.Langs.Good</td>
         </tr>      
         }
 
-        @if (Model.Cv.Langs.Basic != null)
+        @if (Model.Langs.Basic != null)
         {
         <tr>
             <td>Basic Level Languages: </td>
-            <td>@Model.Cv.Langs.Basic</td>
+            <td>@Model.Langs.Basic</td>
         </tr>
         }
 
@@ -93,46 +93,46 @@
 
 
 
-@if (Model.Cv.Educ.Educ)
+@if (Model.Educ.Educ)
 {
     <br /><br /><br />
     <h2>Education</h2><br /><br />
     <table class="table" id="LookingTable">
 
-        @if (Model.Cv.Educ.Uni)
+        @if (Model.Educ.Uni)
         {
             <tr>
                 <td>Institute</td>
-                <td><b>@Model.Cv.Educ.InstituteUniversity</b></td>
+                <td><b>@Model.Educ.InstituteUniversity</b></td>
             </tr>
             <tr>
-                <td>@Model.Cv.Educ.TitleOfDiploma </td>
-                <td>@Model.Cv.Educ.Degree</td>
+                <td>@Model.Educ.TitleOfDiploma </td>
+                <td>@Model.Educ.Degree</td>
              </tr>
              <tr>
-                <td>@Model.Cv.Educ.UniFromYear - @Model.Cv.Educ.UniToYear</td>
+                <td>@Model.Educ.UniFromYear - @Model.Educ.UniToYear</td>
 
             </tr>
         }
 
 
-        @if (Model.Cv.Educ.School)
+        @if (Model.Educ.School)
         {
             <tr>
                 <td>School Name </td>
-                <td><b>@Model.Cv.Educ.SchoolName</b></td>
+                <td><b>@Model.Educ.SchoolName</b></td>
             </tr>
             <tr>
-                <td>@Model.Cv.Educ.SchoolFromYear - @Model.Cv.Educ.SchoolToYear</td>
+                <td>@Model.Educ.SchoolFromYear - @Model.Educ.SchoolToYear</td>
             </tr>
         }
 
-        @if (Model.Cv.Educ.Course)
+        @if (Model.Educ.Course)
         {
             <tr>
-                <td>@Model.Cv.Educ.CourseFromYear</td>
+                <td>@Model.Educ.CourseFromYear</td>
                 <td>Course Name </td>
-                <td><b>@Model.Cv.Educ.CourseName</b></td>
+                <td><b>@Model.Educ.CourseName</b></td>
             </tr>
         }
 
@@ -145,14 +145,14 @@
 
 
 
-@if (Model.Cv.VolunteerNhobbies.Volunteer )
+@if (Model.VolunteerNhobbies.Volunteer )
 {
     <br /><br /><br />
     <h2>Volunteer</h2><br /><br />
     <table class="table" id="LookingTable">
 
         <tr>
-            <td>@Model.Cv.VolunteerNhobbies.VolunteerDet</td>
+            <td>@Model.VolunteerNhobbies.VolunteerDet</td>
         </tr>
 
     </table>
@@ -161,14 +161,14 @@
 
 
 
-@if (Model.Cv.VolunteerNhobbies.Hobbies)
+@if (Model.VolunteerNhobbies.Hobbies)
 {
     <br /><br /><br />
     <h2>Hobbies</h2><br /><br />
     <table class="table" id="LookingTable">
 
         <tr>
-            <td>@Model.Cv.VolunteerNhobbies.HobbiesDet</td>
+            <td>@Model.VolunteerNhobbies.HobbiesDet</td>
         </tr>
 
     </table>
@@ -180,17 +180,17 @@
 
 
 
-@if (Model.Cv.Jobs.pastjobs)
+@if (Model.Jobs.pastjobs)
 {
     <br /><br /><br />
     <h2>Past Jobs</h2><br /><br />
     <table class="table" id="LookingTable">
 
-        @if (Model.Cv.Jobs.pastJob1)
+        @if (Model.Jobs.pastJob1)
         {
             <tr>
-                <td><b>@Model.Cv.Jobs.title1 - </b></td>
-                <td>@Model.Cv.Jobs.explain1</td>
+                <td><b>@Model.Jobs.title1 - </b></td>
+                <td>@Model.Jobs.explain1</td>
             </tr>
             <tr></tr>
         }
@@ -198,11 +198,11 @@
     </table>
     <table class="table" id="LookingTable">
 
-        @if (Model.Cv.Jobs.pastJob2)
+        @if (Model.Jobs.pastJob2)
         {
             <tr>
-                <td><b>@Model.Cv.Jobs.title2 - </b></td>
-                <td>@Model.Cv.Jobs.explain2</td>
+                <td><b>@Model.Jobs.title2 - </b></td>
+                <td>@Model.Jobs.explain2</td>
             </tr>
             <tr></tr>
 
@@ -213,11 +213,11 @@
 
     <table class="table" id="LookingTable">
 
-        @if (Model.Cv.Jobs.pastJob3)
+        @if (Model.Jobs.pastJob3)
         {
             <tr>
-                <td><b>@Model.Cv.Jobs.title3 - </b></td>
-                <td>@Model.Cv.Jobs.explain3</td>
+                <td><b>@Model.Jobs.title3 - </b></td>
+                <td>@Model.Jobs.explain3</td>
             </tr>
             <tr></tr>
 
