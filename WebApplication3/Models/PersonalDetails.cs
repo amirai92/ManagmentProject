@@ -5,7 +5,7 @@ namespace WebApplication3.Models
 {
     public class PersonalDetails
     {
-
+        [Key]
         [StringLength(9, ErrorMessage = "ID number must be 9 characters")]
         [RegularExpression(@"^[0-9]{9}$", ErrorMessage = "ID number should contain only digits")]
         public string ID { get; set; }

@@ -5,28 +5,34 @@ using System.Linq;
 using System.Web;
 using WebApplication3.Models;
 
+
 namespace WebApplication3.Models
 {
     public class CV
     {
 
-        public PersonalDetails Pd { get; set; }
+        public static int idcou=0;
 
-        public Language Langs { get; set; }
+        [Key]
+        public int id { get; set; }
+        public virtual PersonalDetails Pd { get; set; }
 
-        public Education Educ { get; set; }
+        public virtual Language Langs { get; set; }
 
-        public VolunteerHobby VolunteerNhobbies { get; set; }
+        public virtual Education Educ { get; set; }
 
-        public PastJob Jobs { get; set; }
+        public virtual VolunteerHobby VolunteerNhobbies { get; set; }
 
-        public Disability Disabilities { get; set; }
+        public virtual PastJob Jobs { get; set; }
 
+        public virtual Disability Disabilities { get; set; }
 
-
+        public CV()
+        {
+            this.id = idcou++;
+        }
     }
         
-
 
     
 }

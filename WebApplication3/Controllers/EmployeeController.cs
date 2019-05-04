@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using WebApplication3.Models;
 using WebApplication3.Dal;
@@ -37,10 +36,10 @@ namespace WebApplication3.Controllers
         public ActionResult LogOut()
         {
             FormsAuthentication.SignOut();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult enterSignUp ()
+        public ActionResult enterSignUp()
         {
             Employee obj = new Employee();
             return View("EmployeeSignUp", obj);
@@ -48,11 +47,10 @@ namespace WebApplication3.Controllers
 
         public ActionResult EmployeeSignUp(Employee emp)
         {
-
             if (ModelState.IsValid)
             {
                 if (!userExists(emp.UserName))
-                {      
+                {
                     DataLayer dal = new DataLayer();
                     dal.employees.Add(emp);
                     dal.SaveChanges();
@@ -62,7 +60,6 @@ namespace WebApplication3.Controllers
                 else
                 {
                     ViewBag.message = "Username Exists in database.";
-
                 }
             }
             else
@@ -76,9 +73,9 @@ namespace WebApplication3.Controllers
         private bool userExists(string userName)
         {
             DataLayer dal = new DataLayer();
-            List<Manager> users = dal.managers.ToList<Manager>();
-            foreach (Manager manager in dal.managers)
-                if (manager.UserName.Equals(userName))
+            List<Employee> users = dal.employees.ToList<Employee>();
+            foreach (Employee employee in dal.employees)
+                if (employee.UserName.Equals(userName))
                     return true;
             return false;
         }
@@ -95,8 +92,8 @@ namespace WebApplication3.Controllers
             DataLayer dal = new DataLayer();
             //Encryption enc = new Encryption();
             List<Employee> userToCheck = (from x in dal.employees
-                                      where (x.UserName == emp.UserName) &&(x.Password == emp.Password)
-                                      select x).ToList<Employee>();       //Attempting to get user information from database
+                                          where (x.UserName == emp.UserName) && (x.Password == emp.Password)
+                                          select x).ToList<Employee>();       //Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
                 return View("EmployeeMenu", emp);
@@ -107,7 +104,7 @@ namespace WebApplication3.Controllers
                 return View("EmployeeLogin", emp);
             }
         }
-        
+
         public ActionResult WantedBoard()
         {
             return View(new WantedAd("sali", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
@@ -116,10 +113,10 @@ namespace WebApplication3.Controllers
 
         public ActionResult LookingBoard()
         {
-          
-            return View(new LookingAd("sali", "sali@ac.com", "0506502199", true, true, false, false,null));
+
+            return View(new LookingAd("sali", "sali@ac.com", "0506502199", true, true, false, false, null));
         }
-        
+
         public ActionResult CreateCV(Employee emp)
         {
             vm = new VM
@@ -130,12 +127,11 @@ namespace WebApplication3.Controllers
 
             return View(vm);
         }
-        
+
         public ActionResult UpdateLang(VM p)
-            {
+        {
             vm.Pd = p.Pd;
             vm.Langs = new Language();
-
             return View(vm);
         }
 
@@ -175,23 +171,27 @@ namespace WebApplication3.Controllers
         {
             vm.Disabilities = p.Disabilities;
 
-            vm.Cv = new Models.CV() { Pd = vm.Pd, Disabilities = vm.Disabilities,
-                Langs = vm.Langs, Educ = vm.Educ, Jobs = vm.Jobs,
-                VolunteerNhobbies = vm.VolunteerNhobbies };
+            vm.Cv = new Models.CV()
+            {
+                Pd = vm.Pd,
+                Disabilities = vm.Disabilities,
+                Langs = vm.Langs,
+                Educ = vm.Educ,
+                Jobs = vm.Jobs,
+                VolunteerNhobbies = vm.VolunteerNhobbies
+            };
 
             if (vm.Employee != null)
             {
-                vm.Employee.Cv = vm.Cv;
+               // vm.Employee.Cv = vm.Cv;
             }
             return View(vm);
         }
-
 
         public ActionResult BackMenu(VM p)
         {
             return RedirectToAction("EmployeeMenu", p.Employee);
         }
-
 
         public ActionResult ShowCV(VM c)
         {

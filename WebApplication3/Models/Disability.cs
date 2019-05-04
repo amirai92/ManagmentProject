@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,10 @@ namespace WebApplication3.Models
 {
     public class Disability
     {
+        [Key]
+        public int id { get; set; }
+        public static int count { get; set; }
+
 
         public bool Disabilities { get; set; }
 
@@ -31,6 +36,9 @@ namespace WebApplication3.Models
         public bool Social { get; set; }
         public string SocialExp { get; set; }
 
-
+        public Disability()
+        {
+            this.id = count++;
+        }
     }
 }

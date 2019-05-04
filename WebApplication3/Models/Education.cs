@@ -5,6 +5,11 @@ namespace WebApplication3.Models
 {
     public class Education
     {
+       
+        [Key]
+        public int id { get; set; }
+        public static  int count { get; set; }
+        
         public bool Educ { get; set; }
 
         public bool Uni { get; set; }
@@ -29,6 +34,9 @@ namespace WebApplication3.Models
         [RegularExpression("^([0-9]{4})$", ErrorMessage = "Enter an Year")]
         public DateTime? CourseFromYear { get; set; }
 
-
+        public Education()
+        {
+            this.id = count++;
+        }
     }
 }
