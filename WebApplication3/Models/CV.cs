@@ -14,22 +14,23 @@ namespace WebApplication3.Models
         public static int idcou=0;
 
         [Key]
-        public int id { get; set; }
-        public virtual PersonalDetails Pd { get; set; }
+        public int cvId { get; set; }
 
-        public virtual Language Langs { get; set; }
+        public string id { get; set; }
 
-        public virtual Education Educ { get; set; }
+        public int Langs { get; set; }
 
-        public virtual VolunteerHobby VolunteerNhobbies { get; set; }
+        public int Educ { get; set; }
 
-        public virtual PastJob Jobs { get; set; }
+        public int VolunteerNhobbies { get; set; }
 
-        public virtual Disability Disabilities { get; set; }
+        public int Jobs { get; set; }
+
+        public int Disabilities { get; set; }
 
         public CV()
         {
-            this.id = idcou++;
+            this.cvId = idcou++;
         }
     }
         

@@ -23,7 +23,7 @@ namespace WebApplication3.Models
         [StringLength(15, MinimumLength = 3, ErrorMessage = "Password must be 3 to 15 characters")]
         public string Password { get; set; }
 
-       // public CV Cv { get; set; }
+        public int Cv { get; set; }
 
         
 
@@ -37,7 +37,6 @@ namespace WebApplication3.Models
             this.Password = Password;
             this.FirstName = FirstName;
             this.LastName = LastName;
-            Cv = new CV();
 
         }
 
