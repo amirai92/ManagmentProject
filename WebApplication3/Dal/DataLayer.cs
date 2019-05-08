@@ -16,7 +16,7 @@ namespace WebApplication3.Dal
             modelBuilder.Entity<Employee>().ToTable("tblEmployees");
             modelBuilder.Entity<Employer>().ToTable("tblEmployers");
             modelBuilder.Entity<Manager>().ToTable("tblManagers");
-
+            modelBuilder.Entity<QA>().ToTable("tblQA");
 
             modelBuilder.Entity<CV>().ToTable("tblCVs");
             modelBuilder.Entity<PersonalDetails>().ToTable("tblPersonalDetails");
@@ -40,7 +40,7 @@ namespace WebApplication3.Dal
         public DbSet<Education> educations { get; set; }
         public DbSet<VolunteerHobby> volunteerHobbies { get; set; }
         public DbSet<PastJob> pastJobs { get; set; }
-
+        public DbSet<QA> QA { get; set; }
         public DbSet<Disability> disabilities { get; set; }
 
     }

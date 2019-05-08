@@ -1,0 +1,47 @@
+﻿@model IEnumerable<WebApplication3.Models.QA>
+
+@{
+    ViewBag.Title = "QAedittor";
+}
+
+<h2>QAedittor</h2>
+
+<p>
+    @Html.ActionLink("Edit Page", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EditorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoContent)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EditorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfoContent)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.InfoContent }) |
+                @Html.ActionLink("Details", "Details", new { id = item.InfoContent }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.InfoContent })
+            </td>
+        </tr>
+    }
+
+</table>
+
