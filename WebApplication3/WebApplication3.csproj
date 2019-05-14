@@ -132,16 +132,14 @@
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\TestController.cs" />
-    <Compile Include="Dal\LookingAdsDal.cs" />
-    <Compile Include="Dal\WantedAdsDal.cs" />
     <Compile Include="Dal\DataLayer.cs" />
     <Compile Include="Encryption\Encryption.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904161753290_Name.cs" />
-    <Compile Include="Migrations\201904161753290_Name.Designer.cs">
-      <DependentUpon>201904161753290_Name.cs</DependentUpon>
+    <Compile Include="Migrations\201905081202581_init.cs" />
+    <Compile Include="Migrations\201905081202581_init.Designer.cs">
+      <DependentUpon>201905081202581_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ad.cs" />
@@ -194,6 +192,13 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -213,13 +218,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -292,8 +290,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904161753290_Name.resx">
-      <DependentUpon>201904161753290_Name.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201905081202581_init.resx">
+      <DependentUpon>201905081202581_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

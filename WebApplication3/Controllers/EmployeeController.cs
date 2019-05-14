@@ -130,6 +130,7 @@ namespace WebApplication3.Controllers
 
         public ActionResult UpdateLang(VM p)
         {
+            /*
             if (ModelState.IsValid)
             {
                     DataLayer dal = new DataLayer();
@@ -141,7 +142,7 @@ namespace WebApplication3.Controllers
             {
                 ViewBag.message = "Error in registration.";
             }
-
+            */
             vm.Pd = p.Pd;
             vm.Langs = new Language();
             return View(vm);
@@ -185,15 +186,13 @@ namespace WebApplication3.Controllers
 
 
             DataLayer dal = new DataLayer();
-            dal.personalDetails.Add(p.Pd);
-            dal.pastJobs.Add(p.Jobs);
-            dal.languages.Add(p.Langs);
-            dal.educations.Add(p.Educ);
-            dal.volunteerHobbies.Add(p.VolunteerNhobbies);
-            dal.disabilities.Add(p.Disabilities);
+            dal.personalDetails.Add(vm.Pd);
+            dal.pastJobs.Add(vm.Jobs);
+            dal.languages.Add(vm.Langs);
+            dal.educations.Add(vm.Educ);
+            dal.volunteerHobbies.Add(vm.VolunteerNhobbies);
+            dal.disabilities.Add(vm.Disabilities);
 
-            dal.SaveChanges();
-            ViewBag.message = "Employee was added succesfully.";
 
 
 
@@ -206,6 +205,10 @@ namespace WebApplication3.Controllers
                 Jobs = vm.Jobs.id,
                 VolunteerNhobbies = vm.VolunteerNhobbies.id
             };
+
+            dal.cVs.Add(vm.Cv);
+            dal.SaveChanges();
+
 
             if (vm.Employee != null)
             {
@@ -221,13 +224,14 @@ namespace WebApplication3.Controllers
             return RedirectToAction("EmployeeMenu", p.Employee);
         }
 
-        public ActionResult ShowCV(VM c)
+        public ActionResult ShowCV(VM c = null)
         {
-            vm.Employee = c.Employee;
+// vm.Employee = c.Employee;
             DataLayer dal = new DataLayer();
+            vm = new VM();
 
             List<CV> cv = (from x in dal.cVs
-                                          where c.Employee.Cv == x.cvId  select x).ToList<CV>();
+                                          where 1 == x.cvId  select x).ToList<CV>();
             if (cv.Count == 0)     //In case username was found
             {
                 ViewBag.UserLoginMessage = "cv didnt found";
@@ -235,49 +239,50 @@ namespace WebApplication3.Controllers
             }
 
 
-
+            string id = cv[0].id;
             List<PersonalDetails> pd = (from x in dal.personalDetails
-                           where x.ID == cv[0].id
+                           where x.ID == id
                            select x).ToList<PersonalDetails>();  
             vm.Pd = pd[0];
 
 
-
+            int pid = cv[0].Langs;
             List<Language> lang = (from x in dal.languages
-                                        where x.id == cv[0].Langs
+                                        where x.id == pid
                                         select x).ToList<Language>();
             vm.Langs = lang[0];
 
 
-
+            pid = cv[0].Educ;
             List<Education> ed = (from x in dal.educations
-                                        where x.id == cv[0].Educ
+                                        where x.id == pid
                                         select x).ToList<Education>();
             vm.Educ = ed[0];
 
 
 
 
-
+            pid = cv[0].VolunteerNhobbies;
             List<VolunteerHobby> vol = (from x in dal.volunteerHobbies
-                                        where x.id == cv[0].VolunteerNhobbies
+                                        where x.id == pid
                                         select x).ToList<VolunteerHobby>();
             vm.VolunteerNhobbies = vol[0];
 
 
 
 
+            pid = cv[0].Jobs;
             List<PastJob> job = (from x in dal.pastJobs
-                                        where x.id == cv[0].Jobs
+                                        where x.id == pid
                                         select x).ToList<PastJob>();
             vm.Jobs = job[0];
 
 
 
 
-
+            pid = cv[0].Disabilities;
             List<Disability> dis = (from x in dal.disabilities
-                                 where x.id == cv[0].Disabilities
+                                 where x.id == pid
                                  select x).ToList<Disability>();
             vm.Jobs = job[0];
 
@@ -285,7 +290,7 @@ namespace WebApplication3.Controllers
 
 
 
-            return View(c);
+            return View(vm);
         }
 
     }

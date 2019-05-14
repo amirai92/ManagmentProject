@@ -17,7 +17,6 @@ namespace WebApplication3.Dal
             modelBuilder.Entity<Employer>().ToTable("tblEmployers");
             modelBuilder.Entity<Manager>().ToTable("tblManagers");
 
-
             modelBuilder.Entity<CV>().ToTable("tblCVs");
             modelBuilder.Entity<PersonalDetails>().ToTable("tblPersonalDetails");
             modelBuilder.Entity<Language>().ToTable("tblLanguages");

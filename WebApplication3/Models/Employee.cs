@@ -37,7 +37,7 @@ namespace WebApplication3.Models
             this.Password = Password;
             this.FirstName = FirstName;
             this.LastName = LastName;
-
+            this.Cv = 0;
         }
 
     }
