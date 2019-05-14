@@ -15,9 +15,21 @@ namespace WebApplication3.Migrations
                         FirstName = c.String(nullable: false),
                         LastName = c.String(nullable: false),
                         Password = c.String(nullable: false, maxLength: 15),
+                        CV = c.Int(nullable: true),
                     })
                 .PrimaryKey(t => t.UserName);
-            
+
+            CreateTable(
+          "dbo.tblQA",
+          c => new
+          {
+              Title = c.String(nullable: false, maxLength: 150),
+              EditorName = c.String(nullable: false, maxLength: 150),
+              InfoContent = c.String(nullable: false, maxLength: 1500),
+             // Password = c.String(nullable: false, maxLength: 15),
+          })
+          .PrimaryKey(t => t.Title);
+
             CreateTable(
                 "dbo.tblEmployers",
                 c => new
@@ -47,6 +59,7 @@ namespace WebApplication3.Migrations
             DropTable("dbo.tblManagers");
             DropTable("dbo.tblEmployers");
             DropTable("dbo.tblEmployees");
+            DropTable("dbo.tblQA");
         }
     }
 }

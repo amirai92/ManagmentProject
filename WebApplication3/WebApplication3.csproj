@@ -155,6 +155,7 @@
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\PastJob.cs" />
     <Compile Include="Models\PersonalDetails.cs" />
+    <Compile Include="Models\QA.cs" />
     <Compile Include="Models\VolunteerHobby.cs" />
     <Compile Include="Models\WantedAd.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -274,6 +275,10 @@
     <Content Include="Views\Employee\UpdateDisa.cshtml" />
     <Content Include="Views\Employee\SetCV.cshtml" />
     <Content Include="Views\Employee\ShowCV.cshtml" />
+    <Content Include="Views\Manager\QAedittor.cshtml" />
+    <Content Include="Views\Manager\Details.cshtml" />
+    <Content Include="Views\Manager\Create.cshtml" />
+    <Content Include="Views\Manager\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

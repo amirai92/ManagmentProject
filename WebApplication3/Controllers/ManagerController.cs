@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -145,6 +146,121 @@ namespace WebApplication3.Controllers
             return View(new LookingAd("sali", "sali@ac.com", "0506502199", true, true, false, false, null));
 
         }
+
+
+        //QA eddit 
+
+
+        public ActionResult QAedittor()
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.QA.ToList());
+            }
+        }
+
+        // GET: Content/Details/5
+        public ActionResult Details(string id)
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.QA.Where(x => x.InfoContent == id).FirstOrDefault());
+            }
+        }
+
+        // GET: Content/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Content/Create
+        [HttpPost]
+        public ActionResult Create(QA qa)
+        {
+            try
+            {
+                using (DataLayer DBQA = new DataLayer())
+                {
+                    DBQA.QA.Add(qa);
+                    DBQA.SaveChanges();
+
+                }
+                // TODO: Add insert logic here
+
+                return RedirectToAction("QAedittor");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Content/Edit/5
+        [NonAction]
+        public ActionResult Edit(string id)
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.QA.Where(x => x.InfoContent == id).FirstOrDefault());
+            }
+        }
+
+
+        // POST: Content/Edit/5
+        [HttpPost]
+        public ActionResult Edit(string id, QA qa)
+        {
+            try
+            {
+                using (DataLayer DBQA = new DataLayer())
+                {
+                    DBQA.Entry(qa).State = EntityState.Modified;
+                    DBQA.SaveChanges();
+                }
+
+                return RedirectToAction("QAedittor");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+   
+
+        // GET: Content/Delete/5
+        public ActionResult Delete(string id)
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.QA.Where(x => x.InfoContent == id).FirstOrDefault());
+            }
+        }
+
+        // POST: Content/Delete/5
+        [HttpPost]
+        public ActionResult Delete(string id, FormCollection collection)
+        {
+            try
+            {
+                using (DataLayer DBQA = new DataLayer())
+                {
+                    QA qa = DBQA.QA.Where(x => x.InfoContent == id).FirstOrDefault();
+                    DBQA.QA.Remove(qa);
+                    DBQA.SaveChanges();
+
+                }
+                // TODO: Add delete logic here
+
+                return RedirectToAction("QAedittor");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
 
     }
 }
