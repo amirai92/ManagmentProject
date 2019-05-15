@@ -30,6 +30,7 @@ namespace WebApplication3.Controllers
                 if (!userExists(emp.UserName))
                 {
                     DataLayer dal = new DataLayer();
+                    emp.role = "Employer";
                     dal.employers.Add(emp);
                     dal.SaveChanges();
                     return View("EmployerMenu", emp);
@@ -62,7 +63,18 @@ namespace WebApplication3.Controllers
                                           select x).ToList<Employer>();       //Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
+                var authTicket = new FormsAuthenticationTicket(
+                     1,                                  // version
+                     emp.UserName,                      // user name
+                     DateTime.Now,                       // created
+                     DateTime.Now.AddMinutes(20),        // expires
+                     true,       //keep me connected
+                     userToCheck[0].role                       // store roles
+                     );
 
+                string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+                var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                Response.Cookies.Add(authCookie);
                 return View("EmployerMenu", emp);
             }
             else

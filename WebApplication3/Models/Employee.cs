@@ -25,7 +25,9 @@ namespace WebApplication3.Models
 
         public int Cv { get; set; }
 
-        
+
+        [Required]
+        public string role { get; set; }
 
         //TODO: what is thats???
         public Employee() { }

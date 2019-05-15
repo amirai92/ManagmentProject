@@ -9,7 +9,7 @@ namespace WebApplication3.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(WebApplication3.Dal.DataLayer context)
