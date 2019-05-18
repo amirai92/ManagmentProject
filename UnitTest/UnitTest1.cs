@@ -1,8 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Web.Mvc;
 using WebApplication3.Controllers;
 using WebApplication3.Models;
@@ -20,7 +16,7 @@ namespace UnitTest
             EmployeeController controller = new EmployeeController();
 
             ActionResult result = controller.EmployeeSignUp(emp);
-
+            
             Assert.IsInstanceOfType(result, typeof(RedirectToRouteResult));
         }
     }
