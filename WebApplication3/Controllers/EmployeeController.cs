@@ -112,6 +112,7 @@ namespace WebApplication3.Controllers
                 Response.Cookies.Add(authCookie);
                 return View("EmployeeMenu", emp);
             }
+
             else
             {
                 ViewBag.UserLoginMessage = "Incorrect Username/password";
