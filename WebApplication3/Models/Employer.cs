@@ -20,5 +20,8 @@ namespace WebApplication3.Models
 
         [Required]
         public string LastName { get; set; }
+
+        [Required]
+        public string role { get; set; }
     }
 }

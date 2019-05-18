@@ -76,6 +76,7 @@ namespace WebApplication3.Controllers
                 if (!userExists(mng.UserName))     //Adding user to database
                 {
                     //mng.Password = hashedPassword;
+                    mng.role = "Manager";
                     dal.managers.Add(mng);
                     dal.SaveChanges();
                     ViewBag.message = "Manager was added succesfully.";
@@ -124,6 +125,18 @@ namespace WebApplication3.Controllers
                                          select x).ToList<Manager>();       //Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
+                var authTicket = new FormsAuthenticationTicket(
+                     1,                                  // version
+                     man.UserName,                      // user name
+                     DateTime.Now,                       // created
+                     DateTime.Now.AddMinutes(20),        // expires
+                     true,       //keep me connected
+                     userToCheck[0].role                       // store roles
+                     );
+
+                string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+                var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                Response.Cookies.Add(authCookie);
                 ViewBag.UserLoginMessage = "You have logged succesfully";
                 return View("ManagerMenu", man);
             }

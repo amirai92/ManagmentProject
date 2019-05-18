@@ -6,6 +6,7 @@ using WebApplication3.Models;
 using WebApplication3.Dal;
 using System.Web.Security;
 using WebApplication3.ViewModel;
+using System.Web;
 
 namespace WebApplication3.Controllers
 {
@@ -52,6 +53,7 @@ namespace WebApplication3.Controllers
                 if (!userExists(emp.UserName))
                 {
                     DataLayer dal = new DataLayer();
+                    emp.role = "Employee";
                     dal.employees.Add(emp);
                     dal.SaveChanges();
                     ViewBag.message = "Employee was added succesfully.";
@@ -96,6 +98,18 @@ namespace WebApplication3.Controllers
                                           select x).ToList<Employee>();       //Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
+                var authTicket = new FormsAuthenticationTicket(
+                       1,                                  // version
+                       emp.UserName,                      // user name
+                       DateTime.Now,                       // created
+                       DateTime.Now.AddMinutes(20),        // expires
+                       true,       //keep me connected
+                       userToCheck[0].role                       // store roles
+                       );
+
+                string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+                var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                Response.Cookies.Add(authCookie);
                 return View("EmployeeMenu", emp);
             }
             else
