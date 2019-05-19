@@ -1,4 +1,4 @@
-﻿@model WebApplication3.Models.LookingAd
+﻿@model WebApplication3.ViewModel.VM
 @using WebApplication3.Models
 
 <h2>Looking for a job Board</h2>
@@ -6,83 +6,32 @@
 *filter by disability
 
 <table class="table" id="LookingTable">
-    <tr>
-        <td>Employee Details</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>Disabilities</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>Description</td>
-        <td></td>
-    </tr>
-
 
     <tr>
-        <td>Employee Name</td>
-        <td>Email</td>
+        <td>Employee First Name</td>
+        <td>Employee Last Name</td>
         <td>Phone Number</td>
-        <td></td>
-        <td>Vision</td>
-        <td>Hearing</td>
-        <td>Thinking</td>
-        <td>Learning</td>
-        <td>Movement</td>
-        <td>MentalHealth</td>
-        <td>Communicating</td>
-        <td>Social</td>
-
-        <td></td>
-        <td>CV</td>
-        <td></td>
-    </tr>
-
-    <tr>
-        <td>@Model.Name</td>
-        <td>@Model.Email</td>
-        <td>@Model.Phone</td>
-        <td></td>
-
-        @*<td>@Html.CheckBoxFor(m => @Model.Vision, new { @disabled = "disabled" })</td>
-        <td>@Html.CheckBoxFor(m => @Model.Physical, new { @disabled = "disabled" }) </td>
-        <td>@Html.CheckBoxFor(m => @Model.MentalIllness, new { @disabled = "disabled" }) </td>
-        <td>@Html.CheckBoxFor(m => @Model.Sensory, new { @disabled = "disabled" }) </td>*@
-        <td></td>
-        <td>cv</td>
-        <td></td>
+        <td>Email</td>
+        <td>Cv</td>
     </tr>
 
 
 
-    @*
-        @foreach (LookingAd ad in  )
+    
+        @foreach (LookingAd ad in Model.LookingAds)
         {
-        <tr>
-            <td>ad.Name</td>
-            <td>ad.Email</td>
-            <td>ad.Phone Number</td>
-            <td></td>
-
-            <td>ad.Intellectual</td>
-            <td>ad.Physical</td>
-            <td>ad.MentalIllness</td>
-            <td>ad.Sensory</td>
-            <td></td>
-
-            <td>ad.Description</td>
-            <td></td>
-        </tr>
+            <tr>
+                <td>@ad.FirstName</td>
+                <td>@ad.LastName</td>
+                <td>@ad.Phone</td>
+                <td>@ad.Email</td>
+                <td>@ad.Cv</td>
+                <td></td>
+            </tr>
 
         }
 
 
-    *@
+    
 
 </table>

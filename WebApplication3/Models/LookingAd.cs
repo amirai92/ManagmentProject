@@ -9,22 +9,19 @@ namespace WebApplication3.Models
     public class LookingAd : Ad
     {
 
-        public CV Cv { get; set; }
+        public String Cv { get; set; }
 
+        public LookingAd() { }
 
-        public LookingAd(String name, string mail, string phone,
-            bool interl, bool phys, bool mental, bool sens, CV cv)
+        public LookingAd(String id, String firstname, String lastname, string mail, string phone, String cv)
         {
-            this.Name = name;
+            this.ID = id;
+            this.FirstName = firstname;
+            this.LastName = lastname;
             this.Phone = phone;
             this.Email = mail;
-            this.Intellectual = interl;
-            this.MentalIllness = mental;
-            this.Sensory = sens;
-            this.Physical = phys;
+
             this.Cv = cv;
-
-
         }
     }
 }

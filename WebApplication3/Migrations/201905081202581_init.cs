@@ -157,7 +157,24 @@ namespace WebApplication3.Migrations
                         HobbiesDet = c.String(),
                     })
                 .PrimaryKey(t => t.id);
-            
+            //adir added this shit
+            //CreateTable(
+            //    "dbo.tblLookingAd",
+            //    c => new
+            //    {
+            //        ID = c.String(),
+            //        FirstName = c.String(nullable: false),
+            //        LastName = c.String(),
+            //        Phone = c.String(nullable: false),
+            //        Email = c.String(),
+            //        Intellectual = c.String(),
+            //        MentalIllness = c.String(),
+            //        Sensory = c.String(),
+            //        Physical = c.String(),
+            //        Cv = c.String(),
+            //    })
+            //    .PrimaryKey(t => t.ID);
+
         }
         
         public override void Down()
