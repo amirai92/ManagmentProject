@@ -69,16 +69,12 @@ namespace WebApplication3.Controllers
         /*Given user information from user register form*/
         public ActionResult AddManager(Manager mng)
         {
-            DataLayer dal = new DataLayer();
 
             if (ModelState.IsValid)
             {
                 if (!userExists(mng.UserName))     //Adding user to database
                 {
-                    //mng.Password = hashedPassword;
-                    mng.role = "Manager";
-                    dal.managers.Add(mng);
-                    dal.SaveChanges();
+                    DataLayerCS(mng);
                     ViewBag.message = "Manager was added succesfully.";
                     mng = new Manager();
                     View("ManagerMenu", mng);
@@ -89,6 +85,14 @@ namespace WebApplication3.Controllers
             else
                 ViewBag.message = "Error in registration.";
             return View("ManagerRegister", mng);
+        }
+
+        private static void DataLayerCS(Manager mng)
+        {
+            DataLayer dal = new DataLayer();
+            mng.role = "Manager";
+            dal.managers.Add(mng);
+            dal.SaveChanges();
         }
 
         /*This function compares given username with usernames in database*/
@@ -118,11 +122,7 @@ namespace WebApplication3.Controllers
 
         public ActionResult Login(Manager man)
         {
-
-            DataLayer dal = new DataLayer();
-            List<Manager> userToCheck = (from x in dal.managers
-                                         where (x.UserName == man.UserName) && (x.Password == man.Password)
-                                         select x).ToList<Manager>();       //Attempting to get user information from database
+            List<Manager> userToCheck = ManToCheck(man);//Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
                 var authTicket = new FormsAuthenticationTicket(
@@ -147,6 +147,14 @@ namespace WebApplication3.Controllers
             }
         }
 
+        private static List<Manager> ManToCheck(Manager man)
+        {
+            DataLayer dal = new DataLayer();
+            List<Manager> userToCheck = (from x in dal.managers
+                                         where (x.UserName == man.UserName) && (x.Password == man.Password)
+                                         select x).ToList<Manager>();
+            return userToCheck;
+        }
 
         public ActionResult WantedBoard()
         {

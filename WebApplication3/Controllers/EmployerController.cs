@@ -32,10 +32,7 @@ namespace WebApplication3.Controllers
             {
                 if (!userExists(emp.UserName))
                 {
-                    DataLayer dal = new DataLayer();
-                    emp.role = "Employer";
-                    dal.employers.Add(emp);
-                    dal.SaveChanges();
+                    DataLayerCS(emp);
                     return View("EmployerMenu", emp);
                 }
                 else
@@ -47,6 +44,15 @@ namespace WebApplication3.Controllers
              return View("EmployerSignUp", emp);
             
         }
+
+        private static void DataLayerCS(Employer emp)
+        {
+            DataLayer dal = new DataLayer();
+            emp.role = "Employer";
+            dal.employers.Add(emp);
+            dal.SaveChanges();
+        }
+
         /*This function compares given username with usernames in database*/
         private bool userExists(string userName)
         {
@@ -59,11 +65,7 @@ namespace WebApplication3.Controllers
         }
         public ActionResult Login(Employer emp)
         {
-
-            DataLayer dal = new DataLayer();
-            List<Employer> userToCheck = (from x in dal.employers
-                                          where (x.UserName == emp.UserName) && (x.Password == emp.Password)
-                                          select x).ToList<Employer>();       //Attempting to get user information from database
+            List<Employer> userToCheck = CheckEmployer(emp);//Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
                 var authTicket = new FormsAuthenticationTicket(
@@ -86,6 +88,16 @@ namespace WebApplication3.Controllers
                 return View("EmployerLogin", emp);
             }
         }
+
+        private static List<Employer> CheckEmployer(Employer emp)
+        {
+            DataLayer dal = new DataLayer();
+            List<Employer> userToCheck = (from x in dal.employers
+                                          where (x.UserName == emp.UserName) && (x.Password == emp.Password)
+                                          select x).ToList<Employer>();
+            return userToCheck;
+        }
+
         /*This function handles signing out*/
         public ActionResult LogOut()
         {
