@@ -13,18 +13,14 @@ namespace WebApplication3.Models
 
         public LookingAd() { }
 
-        public LookingAd(String id, String firstname, String lastname, string mail, string phone,
-            bool interl, bool phys, bool mental, bool sens, String cv)
+        public LookingAd(String id, String firstname, String lastname, string mail, string phone, String cv)
         {
             this.ID = id;
             this.FirstName = firstname;
             this.LastName = lastname;
             this.Phone = phone;
             this.Email = mail;
-            this.Intellectual = interl;
-            this.MentalIllness = mental;
-            this.Sensory = sens;
-            this.Physical = phys;
+
             this.Cv = cv;
         }
     }

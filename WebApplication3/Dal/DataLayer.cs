@@ -26,7 +26,7 @@ namespace WebApplication3.Dal
             modelBuilder.Entity<Disability>().ToTable("tblDisabilitys");
             modelBuilder.Entity<QA>().ToTable("tblQA");
             modelBuilder.Entity<LookingAd>().ToTable("tblLookingAd");
-
+            modelBuilder.Entity<WantedAd>().ToTable("tblWantedAd");
 
 
         }
@@ -44,6 +44,7 @@ namespace WebApplication3.Dal
         public DbSet<Disability> disabilities { get; set; }
         public DbSet<QA> QA { get; set; }
         public DbSet<LookingAd> lookingAd { get; set; }
+        public DbSet<WantedAd> wantedAd { get; set; }
 
     }
 

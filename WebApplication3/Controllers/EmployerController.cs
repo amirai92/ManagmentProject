@@ -6,11 +6,14 @@ using System.Web.Mvc;
 using System.Web.Security;
 using WebApplication3.Dal;
 using WebApplication3.Models;
+using WebApplication3.ViewModel;
 
 namespace WebApplication3.Controllers
 {
     public class EmployerController : Controller
     {
+        public static VM vm;
+
         // GET: Employer
         public ActionResult Index()
         {
@@ -111,14 +114,47 @@ namespace WebApplication3.Controllers
         }
         public ActionResult WantedBoard()
         {
-            return View(new WantedAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
+            DataLayer dal = new DataLayer();
 
+            List<WantedAd> wantedAd = (from x in dal.wantedAd
+                                         select x).ToList<WantedAd>();
+            vm = new VM()
+            {
+                WantedAds = wantedAd
+            };
+            return View(vm);
         }
 
         public ActionResult LookingBoard()
         {
-            return View(new LookingAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", true, true, false, false, "1"));
+            DataLayer dal = new DataLayer();
 
+            List<LookingAd> lookingAd = (from x in dal.lookingAd
+                                         select x).ToList<LookingAd>();
+            vm = new VM()
+            {
+                LookingAds = lookingAd
+            };
+            return View(vm);
+        }
+
+        public ActionResult WantedPublish(WantedAd wntAd)
+        {
+            if (ModelState.IsValid)
+            {
+                DataLayer dal = new DataLayer();
+                dal.wantedAd.Add(wntAd);
+                dal.SaveChanges();
+                ViewBag.message = "Wanted ad was published succesfully.";
+
+                return View();
+            }
+            else
+            {
+                ViewBag.message = "Error in ad publishment.";
+            }
+
+            return View();
         }
     }
 }

@@ -9,6 +9,9 @@ namespace WebApplication3.ViewModel
     public class VM
     {
         public List<Employee> Employees { get; set; }
+        public List<LookingAd> LookingAds { get; set; }
+        public List<WantedAd> WantedAds { get; set; }
+
         public Employee Employee { get; set; }
 
         public PersonalDetails Pd { get; set; }

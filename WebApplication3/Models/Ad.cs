@@ -25,12 +25,5 @@ namespace WebApplication3.Models
         [Required(ErrorMessage = "Mobile Number is required.")]
         [RegularExpression(@"^(05[0-9]{8})$", ErrorMessage = "Invalid Mobile Number.")]
         public string Phone { get; set; }
-
-        public bool Intellectual { get; set; }
-        public bool Physical { get; set; }
-        public bool MentalIllness { get; set; }
-        public bool Sensory { get; set; }
-
-        //public Ad() { }
     }
 }
