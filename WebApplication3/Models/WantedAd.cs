@@ -11,10 +11,12 @@ namespace WebApplication3.Models
         public string Description { get; set; }
 
 
-        public WantedAd(String name, string mail, string phone, string desc,
+        public WantedAd(String id, String firstname, String lastname, string mail, string phone, string desc,
             bool interl, bool phys, bool mental, bool sens)
         {
-            this.Name = name;
+            this.ID = id;
+            this.FirstName = firstname;
+            this.LastName = LastName;
             this.Phone = phone;
             this.Email = mail;
             this.Description = desc;

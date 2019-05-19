@@ -122,14 +122,14 @@ namespace WebApplication3.Controllers
 
         public ActionResult WantedBoard()
         {
-            return View(new WantedAd("sali", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
+            return View(new WantedAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
 
         }
 
         public ActionResult LookingBoard()
         {
 
-            return View(new LookingAd("sali", "sali@ac.com", "0506502199", true, true, false, false, null));
+            return View(new LookingAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", true, true, false, false, "1"));
         }
 
         public ActionResult CreateCV(Employee emp)
@@ -301,11 +301,26 @@ namespace WebApplication3.Controllers
                                  select x).ToList<Disability>();
             vm.Jobs = job[0];
 
-
-
-
-
             return View(vm);
+        }
+
+        public ActionResult LookingPublish(LookingAd lookAd)
+        {
+            if (ModelState.IsValid)
+            {
+                DataLayer dal = new DataLayer();
+                dal.lookingAd.Add(lookAd);
+                dal.SaveChanges();
+                ViewBag.message = "Looking ad was published succesfully.";
+
+                return View();
+            }
+            else
+            {
+                ViewBag.message = "Error in ad publishment.";
+            }
+
+            return View();
         }
 
     }

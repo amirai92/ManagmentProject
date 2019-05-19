@@ -8,9 +8,14 @@ namespace WebApplication3.Models
 {
     public abstract class Ad
     {
+        [Key]
+        public String ID { get; set; }
 
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Name must be 2 to 15 characters")]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Name must be 2 to 15 characters")]
+        public string LastName { get; set; }
 
 
         [Required(ErrorMessage = "The email address is required")]
@@ -18,7 +23,7 @@ namespace WebApplication3.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Mobile Number is required.")]
-        [RegularExpression(@"^(05[0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
+        [RegularExpression(@"^(05[0-9]{8})$", ErrorMessage = "Invalid Mobile Number.")]
         public string Phone { get; set; }
 
         public bool Intellectual { get; set; }
@@ -26,6 +31,6 @@ namespace WebApplication3.Models
         public bool MentalIllness { get; set; }
         public bool Sensory { get; set; }
 
-
+        //public Ad() { }
     }
 }

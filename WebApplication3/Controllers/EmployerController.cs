@@ -111,13 +111,13 @@ namespace WebApplication3.Controllers
         }
         public ActionResult WantedBoard()
         {
-            return View(new WantedAd("sali", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
+            return View(new WantedAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", "blabla", true, true, false, false));
 
         }
 
         public ActionResult LookingBoard()
         {
-            return View(new LookingAd("sali", "sali@ac.com", "0506502199", true, true, false, false, null));
+            return View(new LookingAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", true, true, false, false, "1"));
 
         }
     }
