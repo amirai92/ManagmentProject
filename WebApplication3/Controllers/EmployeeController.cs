@@ -272,7 +272,7 @@ namespace WebApplication3.Controllers
             vm = new VM();
 
             List<CV> cv = (from x in dal.cVs
-                                          where 1 == x.id  select x).ToList<CV>();
+                                          where "1" == x.id  select x).ToList<CV>();
             if (cv.Count == 0)     //In case username was found
             {
                 ViewBag.UserLoginMessage = "cv didnt found";
