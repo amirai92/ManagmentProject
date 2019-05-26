@@ -36,6 +36,7 @@ namespace WebApplication3.Controllers
         /*This function handles signing out*/
         public ActionResult LogOut()
         {
+            Session["user"] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
@@ -114,11 +115,15 @@ namespace WebApplication3.Controllers
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                 Response.Cookies.Add(authCookie);
+
+                Session["user"] = emp.UserName;
+
                 return View("EmployeeMenu", emp);
             }
 
             else
             {
+                Session["user"] = null;
                 ViewBag.UserLoginMessage = "Incorrect Username/password";
                 return View("EmployeeLogin", emp);
             }

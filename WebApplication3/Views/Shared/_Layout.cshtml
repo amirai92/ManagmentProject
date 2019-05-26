@@ -8,35 +8,38 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
 
-                </button>
-                @Html.ActionLink("ThisAbillity", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("Home", "Index", "Home")
-                @Html.ActionLink("About", "About", "Home")
-                @Html.ActionLink("Contact", "Contact", "Home")
-                @Html.ActionLink("LogIn", "LogIn", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                @Html.ActionLink("SignUp", "SignUp", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></button>
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                <ul class="nav navbar-nav mr-auto">
+                    @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+                    @Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })
+                    @Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })
+                </ul>
+
+                @if (HttpContext.Current.Session["user"] != null)
+                {
+                    <p class="nav navbar-nav navbar-right mr-auto" style="color:white">
+                        Hello, @Session["user"].ToString()
+                    </p>
+                    <ul class="nav navbar-nav navbar-right mr-auto">
+                        @Html.ActionLink("LogOut", "LogOut", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right mr-auto">
+                        @Html.ActionLink("LogIn", "LogIn", "Home", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("SignUp", "SignUp", "Home", new { area = "" }, new { @class = "nav-link" })
+                    </ul>
+                }
 
             </div>
-            @*<div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Employee Sign Up", "EmployeeSignUp", "Employee")</li>
-                    <li>@Html.ActionLink("Employer Sign Up", "EmployerSignUp", "Employer")</li>
-                </ul>
-            </div>*@
         </div>
-    </div>
+    </nav>
+
     <div class="container body-content">
         @RenderBody()
         <hr />

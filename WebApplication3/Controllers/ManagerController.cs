@@ -109,6 +109,7 @@ namespace WebApplication3.Controllers
         /*This function handles signing out*/
         public ActionResult LogOut()
         {
+            Session["user"] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
@@ -122,6 +123,7 @@ namespace WebApplication3.Controllers
 
         public ActionResult Login(Manager man)
         {
+
             List<Manager> userToCheck = ManToCheck(man);//Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
@@ -138,10 +140,15 @@ namespace WebApplication3.Controllers
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                 Response.Cookies.Add(authCookie);
                 ViewBag.UserLoginMessage = "You have logged succesfully";
+
+                Session["user"] = man.UserName;
+
                 return View("ManagerMenu", man);
             }
             else
             {
+                Session["user"] = null;
+
                 ViewBag.UserLoginMessage = "Incorrect Username/password";
                 return View("ManagerLogin", man);
             }

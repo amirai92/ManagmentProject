@@ -80,10 +80,14 @@ namespace WebApplication3.Controllers
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
                 Response.Cookies.Add(authCookie);
+
+                Session["user"] = emp.UserName;
+
                 return View("EmployerMenu", emp);
             }
             else
             {
+                Session["user"] = null;
                 ViewBag.UserLoginMessage = "Incorrect Username/Password";
                 return View("EmployerLogin", emp);
             }
