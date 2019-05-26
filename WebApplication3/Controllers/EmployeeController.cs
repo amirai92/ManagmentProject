@@ -52,10 +52,7 @@ namespace WebApplication3.Controllers
             {
                 if (!userExists(emp.UserName))
                 {
-                    DataLayer dal = new DataLayer();
-                    emp.role = "Employee";
-                    dal.employees.Add(emp);
-                    dal.SaveChanges();
+                    DataLayerCS(emp);
                     ViewBag.message = "Employee was added succesfully.";
                     return View("EmployeeMenu", emp);
                 }
@@ -71,6 +68,15 @@ namespace WebApplication3.Controllers
             return View("EmployeeSignUp", emp);
 
         }
+
+        private static void DataLayerCS(Employee emp)
+        {
+            DataLayer dal = new DataLayer();
+            emp.role = "Employee";
+            dal.employees.Add(emp);
+            dal.SaveChanges();
+        }
+
         /*This function compares given username with usernames in database*/
         private bool userExists(string userName)
         {
@@ -93,9 +99,7 @@ namespace WebApplication3.Controllers
 
             DataLayer dal = new DataLayer();
             //Encryption enc = new Encryption();
-            List<Employee> userToCheck = (from x in dal.employees
-                                          where (x.UserName == emp.UserName) && (x.Password == emp.Password)
-                                          select x).ToList<Employee>();       //Attempting to get user information from database
+            List<Employee> userToCheck = EmpToCheck(emp, dal);//Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
                 var authTicket = new FormsAuthenticationTicket(
@@ -112,12 +116,19 @@ namespace WebApplication3.Controllers
                 Response.Cookies.Add(authCookie);
                 return View("EmployeeMenu", emp);
             }
-             
+
             else
             {
                 ViewBag.UserLoginMessage = "Incorrect Username/password";
                 return View("EmployeeLogin", emp);
             }
+        }
+
+        private static List<Employee> EmpToCheck(Employee emp, DataLayer dal)
+        {
+            return (from x in dal.employees
+                    where (x.UserName == emp.UserName) && (x.Password == emp.Password)
+                    select x).ToList<Employee>();
         }
 
         public ActionResult WantedBoard()
