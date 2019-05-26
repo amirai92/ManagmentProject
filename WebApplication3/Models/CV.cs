@@ -13,9 +13,9 @@ namespace WebApplication3.Models
 
         public static int idcou=0;
 
+        
+        //public int cvId { get; set; }
         [Key]
-        public int cvId { get; set; }
-
         public string id { get; set; }
 
         public int Langs { get; set; }
@@ -30,7 +30,7 @@ namespace WebApplication3.Models
 
         public CV()
         {
-            this.cvId = idcou++;
+            //this.cvId = idcou++;
         }
     }
         

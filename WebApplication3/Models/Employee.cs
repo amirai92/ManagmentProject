@@ -29,7 +29,7 @@ namespace WebApplication3.Models
         [Required]
         public string role { get; set; }
 
-        //TODO: what is thats???
+        //TODO: what is that???
         public Employee() { }
 
         public Employee(string UserName,string Password, string FirstName, string LastName)

@@ -242,7 +242,7 @@ namespace WebApplication3.Controllers
 
             if (vm.Employee != null)
             {
-                vm.Employee.Cv = vm.Cv.cvId;
+                vm.Employee.Cv = vm.Cv.id;
             }
             return View(vm);
         }
@@ -261,7 +261,7 @@ namespace WebApplication3.Controllers
             vm = new VM();
 
             List<CV> cv = (from x in dal.cVs
-                                          where 1 == x.cvId  select x).ToList<CV>();
+                                          where 1 == x.id  select x).ToList<CV>();
             if (cv.Count == 0)     //In case username was found
             {
                 ViewBag.UserLoginMessage = "cv didnt found";
@@ -269,7 +269,7 @@ namespace WebApplication3.Controllers
             }
 
 
-            string id = cv[0].id;
+            string id = cv[0].id.ToString();
             List<PersonalDetails> pd = (from x in dal.personalDetails
                            where x.ID == id
                            select x).ToList<PersonalDetails>();  
