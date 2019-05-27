@@ -24,8 +24,8 @@
                 <td>@ad.LastName</td>
                 <td>@ad.Phone</td>
                 <td>@ad.Email</td>
-                <td>@ad.Cv</td>
-                <td></td>
+                <td>@if (ad.Cv != "")
+                {<a href="@Url.Action("moveShowCV", "Employee", new RouteValueDictionary(new { cvid = ad.Cv }))">To CV</a>} </td>
             </tr>
 
         }
