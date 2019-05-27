@@ -9,11 +9,14 @@ namespace WebApplication3.Models
     public abstract class Ad
     {
         [Key]
+        [Required]
         public String ID { get; set; }
 
+        [Required]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Name must be 2 to 15 characters")]
         public string FirstName { get; set; }
 
+        [Required]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Name must be 2 to 15 characters")]
         public string LastName { get; set; }
 
