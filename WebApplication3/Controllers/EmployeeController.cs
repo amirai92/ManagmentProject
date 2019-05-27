@@ -140,12 +140,14 @@ namespace WebApplication3.Controllers
 
         public ActionResult WantedBoard()
         {
+            String str = Session["user"].ToString();
+
             DataLayer dal = new DataLayer();
 
             List<WantedAd> wantedAd = (from x in dal.wantedAd
                                        select x).ToList<WantedAd>();
 
-            List<Employee> emp = (from x in dal.employees where Session["user"] == x.UserName
+            List<Employee> emp = (from x in dal.employees where str == x.UserName
                                        select x ).ToList<Employee>();
             vm = new VM()
 
@@ -158,13 +160,13 @@ namespace WebApplication3.Controllers
 
         public ActionResult LookingBoard()
         {
-
+            String str = Session["user"].ToString();
             DataLayer dal = new DataLayer();
 
             List<LookingAd> lookingAd = (from x in dal.lookingAd
                                          select x).ToList<LookingAd>();
             List<Employee> emp = (from x in dal.employees
-                                  where Session["user"] == x.UserName
+                                  where str == x.UserName
                                   select x).ToList<Employee>();
             vm = new VM()
             {
