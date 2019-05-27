@@ -37,6 +37,7 @@ namespace WebApplication3.Controllers
         public ActionResult LogOut()
         {
             Session["user"] = null;
+            Session["title"] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
@@ -55,7 +56,7 @@ namespace WebApplication3.Controllers
                 {
                     DataLayerCS(emp);
                     ViewBag.message = "Employee was added succesfully.";
-                    return View("EmployeeMenu", emp);
+                    return View("EmployeeLogin");
                 }
                 else
                 {
@@ -117,6 +118,7 @@ namespace WebApplication3.Controllers
                 Response.Cookies.Add(authCookie);
 
                 Session["user"] = emp.UserName;
+                Session["title"] = "employee";
 
                 return View("EmployeeMenu", emp);
             }

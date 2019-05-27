@@ -33,7 +33,7 @@ namespace WebApplication3.Controllers
                 if (!userExists(emp.UserName))
                 {
                     DataLayerCS(emp);
-                    return View("EmployerMenu", emp);
+                    return View("EmployerLogin");
                 }
                 else
                     ViewBag.message = "Username Exists in database.";
@@ -82,6 +82,7 @@ namespace WebApplication3.Controllers
                 Response.Cookies.Add(authCookie);
 
                 Session["user"] = emp.UserName;
+                Session["title"] = "employer";
 
                 return View("EmployerMenu", emp);
             }
@@ -105,6 +106,8 @@ namespace WebApplication3.Controllers
         /*This function handles signing out*/
         public ActionResult LogOut()
         {
+            Session["user"] = null;
+            Session["title"] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }

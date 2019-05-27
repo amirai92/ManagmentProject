@@ -21,12 +21,33 @@
 
                 @if (HttpContext.Current.Session["user"] != null)
                 {
-                    <p class="nav navbar-nav navbar-right mr-auto" style="color:white">
-                        Hello, @Session["user"].ToString()
-                    </p>
-                    <ul class="nav navbar-nav navbar-right mr-auto">
-                        @Html.ActionLink("LogOut", "LogOut", "Home", new { area = "" }, new { @class = "nav-link" })
-                    </ul>
+                    if (HttpContext.Current.Session["title"].ToString() == "employee")
+                    {
+                <p class="nav navbar-nav navbar-right mr-auto" style="color:white">
+                    @Html.ActionLink("Hello, " + @Session["user"].ToString(), "EmployeeMenu", "Employee", new { area = "" }, new { @class = "nav-link" })
+                </p>
+                        <ul class="nav navbar-nav navbar-right mr-auto">
+                            @Html.ActionLink("LogOut", "LogOut", "Home", new { area = "" }, new { @class = "nav-link" })
+                        </ul>
+                    }
+                    else if (HttpContext.Current.Session["title"].ToString() == "employer")
+                    {
+                        <p class="nav navbar-nav navbar-right mr-auto" style="color:white">
+                            @Html.ActionLink("Hello, " + @Session["user"].ToString(), "EmployerMenu", "Employer", new { area = "" }, new { @class = "nav-link" })
+                        </p>
+                        <ul class="nav navbar-nav navbar-right mr-auto">
+                            @Html.ActionLink("LogOut", "LogOut", "Home", new { area = "" }, new { @class = "nav-link" })
+                        </ul>
+                    }
+                    else if (HttpContext.Current.Session["title"].ToString() == "manager")
+                    {
+                        <p class="nav navbar-nav navbar-right mr-auto" style="color:white">
+                            @Html.ActionLink("Hello, " + @Session["user"].ToString(), "ManagerMenu", "Manager", new { area = "" }, new { @class = "nav-link" })
+                        </p>
+                        <ul class="nav navbar-nav navbar-right mr-auto">
+                            @Html.ActionLink("LogOut", "LogOut", "Home", new { area = "" }, new { @class = "nav-link" })
+                        </ul>
+                    }
                 }
                 else
                 {

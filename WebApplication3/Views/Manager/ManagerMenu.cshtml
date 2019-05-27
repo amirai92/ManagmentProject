@@ -6,7 +6,6 @@
 
 
 <div class="jumbotron">
-    <h1 class="display-4">Welcome Back @Model.UserName </h1>
     <h1 class="display-4">Manager Menu: </h1>
 
 </div>
@@ -18,12 +17,9 @@
         @Html.ActionLink("Add Manager ", "AddManager", "Manager", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
     <div class="col">
-        @Html.ActionLink("Edit", "Edit", "Manager", new { area = "" }, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("QA Editor", "QAedittor", "Manager", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
 
-    <div class="col">
-        @Html.ActionLink("Watch", "Watch", "Manager", new { area = "" }, new { @class = "btn btn-outline-success" })
-    </div>
     <div class="col">
         @Html.ActionLink("Statistics", "Statistics", "Manager", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
