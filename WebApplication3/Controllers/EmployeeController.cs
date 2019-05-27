@@ -144,9 +144,14 @@ namespace WebApplication3.Controllers
 
             List<WantedAd> wantedAd = (from x in dal.wantedAd
                                        select x).ToList<WantedAd>();
+
+            List<Employee> emp = (from x in dal.employees where Session["user"] == x.UserName
+                                       select x ).ToList<Employee>();
             vm = new VM()
+
             {
-                WantedAds = wantedAd
+                WantedAds = wantedAd,
+                Employee = emp[0]
             };
             return View(vm);
         }
@@ -158,9 +163,13 @@ namespace WebApplication3.Controllers
 
             List<LookingAd> lookingAd = (from x in dal.lookingAd
                                          select x).ToList<LookingAd>();
+            List<Employee> emp = (from x in dal.employees
+                                  where Session["user"] == x.UserName
+                                  select x).ToList<Employee>();
             vm = new VM()
             {
-                LookingAds = lookingAd
+                LookingAds = lookingAd,
+                Employee = emp[0]
             };
             return View(vm);
         }
