@@ -20,11 +20,14 @@ namespace WebApplication3.Controllers
             Employee defUser = new Employee("Amir", "123456", "Amir", "Aizin");
             return View("EmployeeMenu", defUser);
         }
-        public ActionResult EmployeeMenu(Employee emp)
+        public ActionResult EmployeeMenu()
         {
-           // if(emp == null) {
-                
-               
+            DataLayer dal = new DataLayer();
+            List<Employee> emp = (from x in dal.employees
+                                  where Session["user"] == x.UserName
+                                  select x).ToList<Employee>();
+
+
             return View(emp);
         }
 
