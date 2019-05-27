@@ -18,17 +18,21 @@
     <div class="col">
         @Html.ActionLink("Watching The Board", "WatchingTheBoard", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
-    
+
+    <div class="col">
+        @Html.ActionLink("Post looking ad", "LookingPublish", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+
     <div class="col">
         @Html.ActionLink("Log out", "LogOut", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
     @*
-    @if (!User.Identity.IsAuthenticated)
-    {
-        <div class="col">
-            @Html.ActionLink("Employee Registration", "enterSignUp", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
-        </div>
-    }
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div class="col">
+                @Html.ActionLink("Employee Registration", "enterSignUp", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
+            </div>
+        }
     *@
 </div>
 
