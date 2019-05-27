@@ -20,11 +20,13 @@ namespace WebApplication3.Controllers
             Employee defUser = new Employee("Amir", "123456", "Amir", "Aizin");
             return View("EmployeeMenu", defUser);
         }
-        public ActionResult EmployeeMenu()
+        public ActionResult EmployeeMenu(Employee emp2)
         {
+            String str = Session["user"].ToString();
+
             DataLayer dal = new DataLayer();
             List<Employee> emp = (from x in dal.employees
-                                  where Session["user"] == x.UserName
+                                  where str == x.UserName
                                   select x).ToList<Employee>();
 
 
