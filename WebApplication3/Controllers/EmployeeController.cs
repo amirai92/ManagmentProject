@@ -20,8 +20,14 @@ namespace WebApplication3.Controllers
             Employee defUser = new Employee("Amir", "123456", "Amir", "Aizin");
             return View("EmployeeMenu", defUser);
         }
-        public ActionResult EmployeeMenu(Employee emp)
+        public ActionResult EmployeeMenu()
         {
+            DataLayer dal = new DataLayer();
+            List<Employee> emp = (from x in dal.employees
+                                  where Session["user"] == x.UserName
+                                  select x).ToList<Employee>();
+
+
             return View(emp);
         }
 
@@ -174,11 +180,16 @@ namespace WebApplication3.Controllers
             return View(vm);
         }
 
-        public ActionResult CreateCV(Employee emp)
+        public ActionResult CreateCV()
         {
-            vm = new VM
+            DataLayer dal = new DataLayer();
+            List<Employee> emp = (from x in dal.employees
+                                      where Session["user"] == x.UserName
+                                      select x).ToList<Employee>();
+
+                vm = new VM
             {
-                Employee = emp,
+                Employee = emp[0],
                 Pd = new PersonalDetails()
             };
 
@@ -281,7 +292,9 @@ namespace WebApplication3.Controllers
             return RedirectToAction("EmployeeMenu", p.Employee);
         }
 
-        public ActionResult ShowCV(VM c = null)
+
+        //TODO: change it to int
+        public ActionResult ShowCV(string cvid)
         {
 // vm.Employee = c.Employee;
             DataLayer dal = new DataLayer();
@@ -292,7 +305,7 @@ namespace WebApplication3.Controllers
             if (cv.Count == 0)     //In case username was found
             {
                 ViewBag.UserLoginMessage = "cv didnt found";
-                return RedirectToAction("EmployeeMenu",c.Employee);
+                return RedirectToAction("EmployeeMenu");
             }
 
 
