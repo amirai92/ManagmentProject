@@ -7,11 +7,14 @@ using System.Web.Mvc;
 using System.Web.Security;
 using WebApplication3.Dal;
 using WebApplication3.Models;
+using WebApplication3.ViewModel;
 
 namespace WebApplication3.Controllers
 {
     public class ManagerController : Controller
     {
+        public static VM vm;
+
         // GET: Manager
         public ActionResult Index()
         {
@@ -110,6 +113,7 @@ namespace WebApplication3.Controllers
         public ActionResult LogOut()
         {
             Session["user"] = null;
+            Session["title"] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
@@ -142,6 +146,7 @@ namespace WebApplication3.Controllers
                 ViewBag.UserLoginMessage = "You have logged succesfully";
 
                 Session["user"] = man.UserName;
+                Session["title"] = "manager";
 
                 return View("ManagerMenu", man);
             }
@@ -165,13 +170,33 @@ namespace WebApplication3.Controllers
 
         public ActionResult WantedBoard()
         {
-            return View(new WantedAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", "blabla"));
+            DataLayer dal = new DataLayer();
+
+            List<WantedAd> wantedAd = (from x in dal.wantedAd
+                                       select x).ToList<WantedAd>();
+            vm = new VM()
+            {
+                WantedAds = wantedAd
+            };
+            return View(vm);
+
+            //return View(new WantedAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", "blabla"));
 
         }
 
         public ActionResult LookingBoard()
         {
-            return View(new LookingAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", "1"));
+            DataLayer dal = new DataLayer();
+
+            List<LookingAd> lookingAd = (from x in dal.lookingAd
+                                       select x).ToList<LookingAd>();
+            vm = new VM()
+            {
+                LookingAds = lookingAd
+            };
+            return View(vm);
+
+            //return View(new LookingAd("123456", "sali", "dalal", "sali@ac.com", "0506502199", "1"));
 
         }
 

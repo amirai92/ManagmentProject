@@ -13,7 +13,6 @@ namespace WebApplication3.Models
 
             public string EditorName { get; set; }
 
-            public string InfoContent { get; set; }
-        
+            public string InfoContent { get; set; }   
     }
 }
