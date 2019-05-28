@@ -9,6 +9,7 @@ namespace WebApplication3.Models
     public class Employee
     {
         [Required]
+        [RegularExpression(@"^([0-9]{9})$", ErrorMessage = "Invalid ID Number")]
         public string ID { get; set; }
 
         [Required]
@@ -27,9 +28,11 @@ namespace WebApplication3.Models
         public string Password { get; set; }
 
         [Required]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
         [Required]
+        [RegularExpression(@"^(05[0-9]{8})$", ErrorMessage = "Invalid Mobile Number.")]
         public string Phone { get; set; }
 
 

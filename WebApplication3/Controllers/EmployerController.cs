@@ -26,6 +26,7 @@ namespace WebApplication3.Controllers
             return View(emp);
         }
 
+        //[HttpPost]
         public ActionResult EmployerSignUp(Employer emp)
         {
             if (ModelState.IsValid)
@@ -45,6 +46,7 @@ namespace WebApplication3.Controllers
             
         }
 
+        //[HttpPost]
         private static void DataLayerCS(Employer emp)
         {
             DataLayer dal = new DataLayer();
