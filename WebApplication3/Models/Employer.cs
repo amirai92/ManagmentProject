@@ -8,6 +8,9 @@ namespace WebApplication3.Models
 {
     public class Employer
     {
+        [Required]
+        public string ID { get; set; }
+
         [Key]
         [Required]
         public string UserName { get; set; }
@@ -20,6 +23,14 @@ namespace WebApplication3.Models
 
         [Required]
         public string LastName { get; set; }
+
+
+        [Required]
+        public string Email { get; set; }
+
+        [Required]
+        public string Phone { get; set; }
+
 
         [Required]
         public string role { get; set; }

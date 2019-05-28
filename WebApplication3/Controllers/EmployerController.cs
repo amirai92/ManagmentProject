@@ -159,21 +159,87 @@ namespace WebApplication3.Controllers
 
         public ActionResult WantedPublish(WantedAd wntAd)
         {
-            if (ModelState.IsValid)
-            {
-                DataLayer dal = new DataLayer();
-                dal.wantedAd.Add(wntAd);
-                dal.SaveChanges();
-                ViewBag.message = "Wanted ad was published succesfully.";
+            bool flag = false;
+            TempData["alertMessage"] = null;
 
-                return View();
+            DataLayer dal = new DataLayer();
+
+            string str = Session["user"].ToString();
+
+            Employer emp = (from x in dal.employers
+                            where str == x.UserName
+                            select x).ToList<Employer>()[0];
+
+            //check if there already is a wanted ad for this user
+            List<WantedAd> ads = dal.wantedAd.ToList<WantedAd>();
+            foreach (WantedAd wanted in dal.wantedAd)
+                if (wanted.ID.Equals(emp.ID))
+                {
+                    TempData["alertMessage"] = "You have already posted a wanted ad";
+                    flag = true;
+                }
+                else
+                {
+                    TempData["alertMessage"] = "Your ad was posted successfuly";
+                    flag = false;
+                }
+
+            if (!flag)
+            {
+                if (ModelState.IsValid)
+                {
+                    wntAd.FirstName = emp.FirstName;
+                    wntAd.LastName = emp.LastName;
+                    wntAd.ID = emp.ID;
+                    wntAd.Phone = emp.Phone;
+                    wntAd.Email = emp.Email;
+
+                    dal.wantedAd.Add(wntAd);
+                    dal.SaveChanges();
+                    ViewBag.message = "Wanted ad was published succesfully.";
+
+                    return View();
+                }
+                else
+                {
+                    ViewBag.message = "Error in ad publishment.";
+                }
             }
             else
-            {
-                ViewBag.message = "Error in ad publishment.";
-            }
+                return RedirectToAction("EmployerMenu");
 
             return View();
         }
+
+        public ActionResult Desc(WantedAd desc)
+        {
+            DataLayer dal = new DataLayer();
+
+            string str = Session["user"].ToString();
+
+            Employer emp = (from x in dal.employers
+                            where str == x.UserName
+                            select x).ToList<Employer>()[0];
+
+            WantedAd wnt = (from x in dal.wantedAd
+                            where x.ID == emp.ID
+                            select x).ToList<WantedAd>()[0];
+
+            wnt.Description = desc.Description;
+            dal.SaveChanges();
+
+            TempData["alertMessage"] = "Your ad was posted successfuly";
+
+            return RedirectToAction("EmployerMenu");
+        }
+
+        public ActionResult QAview()
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.QA.ToList());
+            }
+        }
+
     }
 }

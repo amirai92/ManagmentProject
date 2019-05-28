@@ -14,7 +14,7 @@
 
 <div class="row text-center">
     <div class="col">
-        @Html.ActionLink("Watching content ", "WatchingContent", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
+        @Html.ActionLink("QA", "QAview", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
     <div class="col">
         @Html.ActionLink("Watching The Board", "Boards", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
@@ -25,20 +25,16 @@
     </div>
 
     <div class="col">
-        @Html.ActionLink("Publish feedback on web", "PublishOnWeb", "Employer", new { area = "" }, new { @class = "btn btn-outline-success" })
-    </div>
-
-    <div class="col">
         @Html.ActionLink("Log out", "LogOut", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
-    @*
-        @if (!User.Identity.IsAuthenticated)
-        {
-            <div class="col">
-                @Html.ActionLink("Employee Registration", "enterSignUp", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
-            </div>
-        }
-    *@
+
+    @if (null != TempData["alertMessage"])
+    {
+        <script type="text/javascript">
+            alert("@TempData["alertMessage"]");
+        </script>
+    }
+
 </div>
 
 

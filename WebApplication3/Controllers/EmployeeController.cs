@@ -100,7 +100,6 @@ namespace WebApplication3.Controllers
         {
 
             DataLayer dal = new DataLayer();
-            //Encryption enc = new Encryption();
             List<Employee> userToCheck = EmpToCheck(emp, dal);//Attempting to get user information from database
             if (userToCheck.Count != 0)     //In case username was found
             {
@@ -288,31 +287,25 @@ namespace WebApplication3.Controllers
 // vm.Employee = c.Employee;
             DataLayer dal = new DataLayer();
             vm = new VM();
+            CV cv = c.Cv;
 
-            List<CV> cv = (from x in dal.cVs
-                                          where "1" == x.id  select x).ToList<CV>();
-            if (cv.Count == 0)     //In case username was found
-            {
-                ViewBag.UserLoginMessage = "cv didnt found";
-                return RedirectToAction("EmployeeMenu",c.Employee);
-            }
+            string id = cv.id;
 
-
-            string id = cv[0].id.ToString();
+            //string id = cv[0].id.ToString();
             List<PersonalDetails> pd = (from x in dal.personalDetails
                            where x.ID == id
                            select x).ToList<PersonalDetails>();  
             vm.Pd = pd[0];
 
 
-            int pid = cv[0].Langs;
+            int pid = cv.Langs;
             List<Language> lang = (from x in dal.languages
                                         where x.id == pid
                                         select x).ToList<Language>();
             vm.Langs = lang[0];
 
 
-            pid = cv[0].Educ;
+            pid = cv.Educ;
             List<Education> ed = (from x in dal.educations
                                         where x.id == pid
                                         select x).ToList<Education>();
@@ -321,7 +314,7 @@ namespace WebApplication3.Controllers
 
 
 
-            pid = cv[0].VolunteerNhobbies;
+            pid = cv.VolunteerNhobbies;
             List<VolunteerHobby> vol = (from x in dal.volunteerHobbies
                                         where x.id == pid
                                         select x).ToList<VolunteerHobby>();
@@ -330,7 +323,7 @@ namespace WebApplication3.Controllers
 
 
 
-            pid = cv[0].Jobs;
+            pid = cv.Jobs;
             List<PastJob> job = (from x in dal.pastJobs
                                         where x.id == pid
                                         select x).ToList<PastJob>();
@@ -339,7 +332,7 @@ namespace WebApplication3.Controllers
 
 
 
-            pid = cv[0].Disabilities;
+            pid = cv.Disabilities;
             List<Disability> dis = (from x in dal.disabilities
                                  where x.id == pid
                                  select x).ToList<Disability>();
@@ -350,24 +343,78 @@ namespace WebApplication3.Controllers
 
         public ActionResult LookingPublish(LookingAd lookAd)
         {
-            if (ModelState.IsValid)
-            {
-                DataLayer dal = new DataLayer();
-                dal.lookingAd.Add(lookAd);
-                dal.SaveChanges();
-                ViewBag.message = "Looking ad was published succesfully.";
+            bool flag = false;
+            TempData["alertMessage"] = null;
 
-                return View();
+            DataLayer dal = new DataLayer();
+
+            string str = Session["user"].ToString();
+
+            Employee emp = (from x in dal.employees
+                                  where str == x.UserName
+                                  select x).ToList<Employee>()[0];
+
+            //check if there already is a looking ad for this user
+            List<LookingAd> ads = dal.lookingAd.ToList<LookingAd>();
+            foreach (LookingAd looking in dal.lookingAd)
+                if (looking.ID.Equals(emp.ID))
+                {
+                    TempData["alertMessage"] = "You have already posted a looking ad";
+                    flag = true;
+                }
+                else
+                    flag = false;
+
+            if (!flag)
+            {
+                if (ModelState.IsValid)
+                {
+                    lookAd.FirstName = emp.FirstName;
+                    lookAd.LastName = emp.LastName;
+                    lookAd.ID = emp.ID;
+                    lookAd.Phone = emp.Phone;
+                    lookAd.Email = emp.Email;
+                    lookAd.Cv = "cv_in_progress";
+
+                    dal.lookingAd.Add(lookAd);
+                    dal.SaveChanges();
+                    ViewBag.message = "Looking ad was published succesfully.";
+
+                    return RedirectToAction("CreateCV");
+                }
+                else
+                {
+                    ViewBag.message = "Error in ad publishment.";
+                }
             }
             else
-            {
-                ViewBag.message = "Error in ad publishment.";
-            }
+                return RedirectToAction("EmployeeMenu");
 
             return View();
         }
 
-        
+        public ActionResult moveShowCV(String cvid)
+        {
+            DataLayer dal = new DataLayer();
+
+            CV cv1 = (from x in dal.cVs
+                      select x).ToList<CV>()[0];
+
+            vm = new VM()
+            {
+                Cv = cv1
+            };
+
+            return RedirectToAction("ShowCV", vm);
+        }
+
+        public ActionResult QAview()
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.QA.ToList());
+            }
+        }
 
     }
 }
