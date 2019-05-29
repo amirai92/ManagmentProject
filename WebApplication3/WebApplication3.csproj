@@ -156,6 +156,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Ad.cs" />
+    <Compile Include="Models\Content.cs" />
     <Compile Include="Models\CV.cs" />
     <Compile Include="Models\Disability.cs" />
     <Compile Include="Models\Education.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Models\LookingAd.cs" />
     <Compile Include="Models\Manager.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\MessageManeger.cs" />
     <Compile Include="Models\PastJob.cs" />
     <Compile Include="Models\PersonalDetails.cs" />
     <Compile Include="Models\QA.cs" />
@@ -211,6 +213,15 @@
     <Content Include="Views\Employer\WantedPublish.cshtml" />
     <Content Include="Views\Employee\QAview.cshtml" />
     <Content Include="Views\Employer\QAview.cshtml" />
+    <Content Include="Views\Employer\MessageSend.cshtml" />
+    <Content Include="Views\Employer\MessageCreate.cshtml" />
+    <Content Include="Views\Manager\Messageview.cshtml" />
+    <Content Include="Views\Manager\Contentedittor.cshtml" />
+    <Content Include="Views\Manager\ContentDetails.cshtml" />
+    <Content Include="Views\Manager\ContentCreate.cshtml" />
+    <Content Include="Views\Manager\ContentDelete.cshtml" />
+    <Content Include="Views\Employee\Contentedittor.cshtml" />
+    <Content Include="Views\Employer\Contentedittor.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

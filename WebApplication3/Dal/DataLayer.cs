@@ -27,8 +27,8 @@ namespace WebApplication3.Dal
             modelBuilder.Entity<QA>().ToTable("tblQA");
             modelBuilder.Entity<LookingAd>().ToTable("tblLookingAd");
             modelBuilder.Entity<WantedAd>().ToTable("tblWantedAd");
-
-
+            modelBuilder.Entity<MessageManeger>().ToTable("tblMessageManeger");
+            modelBuilder.Entity<Content>().ToTable("tblContent");
         }
 
         public DbSet<Employee> employees { get; set; }
@@ -40,6 +40,8 @@ namespace WebApplication3.Dal
         public DbSet<Education> educations { get; set; }
         public DbSet<VolunteerHobby> volunteerHobbies { get; set; }
         public DbSet<PastJob> pastJobs { get; set; }
+        public DbSet<MessageManeger> messageManeger { get; set; }
+        public DbSet<Content> content { get; set; }
 
         public DbSet<Disability> disabilities { get; set; }
         public DbSet<QA> QA { get; set; }

@@ -315,5 +315,96 @@ namespace WebApplication3.Controllers
         }
 
 
+        public ActionResult Messageview()
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.messageManeger.ToList());
+            }
+        }
+
+        //Content Edditor
+
+
+        public ActionResult Contentedittor()
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.content.ToList());
+            }
+        }
+
+        // GET: Content/Details/5
+        public ActionResult ContentDetails(string id)
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.content.Where(x => x.InfoContent == id).FirstOrDefault());
+            }
+        }
+
+        // GET: Content/Create
+        public ActionResult ContentCreate()
+        {
+            return View();
+        }
+
+        // POST: Content/Create
+        [HttpPost]
+        public ActionResult ContentCreate(Content qa)
+        {
+            try
+            {
+                using (DataLayer DBQA = new DataLayer())
+                {
+                    DBQA.content.Add(qa);
+                    DBQA.SaveChanges();
+
+                }
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Contentedittor");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
+
+        // GET: Content/Delete/5
+        public ActionResult ContentDelete(string id)
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.content.Where(x => x.InfoContent == id).FirstOrDefault());
+            }
+        }
+
+        // POST: Content/Delete/5
+        [HttpPost]
+        public ActionResult ContentDelete(string id, FormCollection collection)
+        {
+            try
+            {
+                using (DataLayer DBQA = new DataLayer())
+                {
+                    Content qa = DBQA.content.Where(x => x.InfoContent == id).FirstOrDefault();
+                    DBQA.content.Remove(qa);
+                    DBQA.SaveChanges();
+
+                }
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Contentedittor");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
     }
 }

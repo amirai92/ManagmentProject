@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication3.Models.Content>
+
+@{
+    ViewBag.Title = "Contentedittor";
+}
+
+<h2>Content Editor</h2>
+
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EditorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoContent)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EditorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InfoContent)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -418,5 +418,13 @@ namespace WebApplication3.Controllers
             }
         }
 
+        public ActionResult Contentedittor()
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.content.ToList());
+            }
+        }
+
     }
 }

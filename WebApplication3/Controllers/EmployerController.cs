@@ -243,5 +243,49 @@ namespace WebApplication3.Controllers
             }
         }
 
+        public ActionResult MessageSend()
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.messageManeger.ToList());
+            }
+        }
+
+        // GET: Content/Create
+        public ActionResult MessageCreate()
+        {
+            return View();
+        }
+
+        // POST: Content/Create
+        [HttpPost]
+        public ActionResult MessageCreate(MessageManeger qa)
+        {
+            try
+            {
+                using (DataLayer DBQA = new DataLayer())
+                {
+                    DBQA.messageManeger.Add(qa);
+                    DBQA.SaveChanges();
+
+                }
+                // TODO: Add insert logic here
+
+                return RedirectToAction("MessageSend");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        public ActionResult Contentedittor()
+        {
+            using (DataLayer DBQA = new DataLayer())
+            {
+                return View(DBQA.content.ToList());
+            }
+        }
+
     }
 }

@@ -15,6 +15,11 @@
     <div class="col">
         @Html.ActionLink("QA", "QAview", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
+
+    <div class="col">
+        @Html.ActionLink("Content", "Contentedittor", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
+    </div>
+
     <div class="col">
         @Html.ActionLink("Watching The Board", "WatchingTheBoard", "Employee", new { area = "" }, new { @class = "btn btn-outline-success" })
     </div>
@@ -29,9 +34,9 @@
 
     @if (null != TempData["alertMessage"])
     {
-    <script type="text/javascript">
+        <script type="text/javascript">
             alert("@TempData["alertMessage"]");
-    </script>
+        </script>
     }
 
 </div>
